@@ -5,26 +5,92 @@ import java.util.ArrayList;
 public class SolicitudEmpresa {
 	
  private String idSolicitud;
- private int ExperieciaSolicitud;
- private float sueldoMinimoSolicitud;
+ private Empresa miEmpresa;
+ private int cantidad;
+ private int experienciaSolicitud;
+ private float sueldoMaximoSolicitud;
  private String TipoTrabajoSolicitud;
  private String lincenciaConducirSolicitud;
  private String TipoEmpleado;
  private String tituloEmpleado;
- private int cantidad;
- 
  private ArrayList<String> idiomasSolicitud;
- {
- 	idiomasSolicitud = new ArrayList<String>();
- }
  
- public void GenerarConsultaEmpresa()
- {
-	 
+ public SolicitudEmpresa(String idSolicitud, Empresa miEmpresa, int cantidad, int experienciaSolicitud,
+		float sueldoMaximoSolicitud, String tipoTrabajoSolicitud, String lincenciaConducirSolicitud,
+		String tipoEmpleado, String tituloEmpleado, ArrayList<String> idiomasSolicitud) {
+	super();
+	this.idSolicitud = idSolicitud;
+	this.miEmpresa = miEmpresa;
+	this.cantidad = cantidad;
+	this.experienciaSolicitud = experienciaSolicitud;
+	this.sueldoMaximoSolicitud = sueldoMaximoSolicitud;
+	TipoTrabajoSolicitud = tipoTrabajoSolicitud;
+	this.lincenciaConducirSolicitud = lincenciaConducirSolicitud;
+	TipoEmpleado = tipoEmpleado;
+	this.tituloEmpleado = tituloEmpleado;
+	this.idiomasSolicitud = idiomasSolicitud;
+}
+
+ public String getIdSolicitud() {
+	return idSolicitud;
  }
- public void GenerarSolicitudEmpresa()
- {
-	 
+ public void setIdSolicitud(String idSolicitud) {
+	this.idSolicitud = idSolicitud;
  }
+ public Empresa getMiEmpresa() {
+	return miEmpresa;
+ }
+ public void setMiEmpresa(Empresa miEmpresa) {
+	this.miEmpresa = miEmpresa;
+ }
+ public int getCantidad() {
+	return cantidad;
+ }
+ public void setCantidad(int cantidad) {
+	this.cantidad = cantidad;
+ }
+ public int getExperienciaSolicitud() {
+	return experienciaSolicitud;
+ }
+ public void setExperienciaSolicitud(int experienciaSolicitud) {
+	this.experienciaSolicitud = experienciaSolicitud;
+ }
+ public float getSueldoMaximoSolicitud() {
+	return sueldoMaximoSolicitud;
+ }
+ public void setSueldoMaximoSolicitud(float sueldoMaximoSolicitud) {
+	this.sueldoMaximoSolicitud = sueldoMaximoSolicitud;
+ }
+ public String getTipoTrabajoSolicitud() {
+	return TipoTrabajoSolicitud;
+ }
+ public void setTipoTrabajoSolicitud(String tipoTrabajoSolicitud) {
+	TipoTrabajoSolicitud = tipoTrabajoSolicitud;
+ }
+ public String getLincenciaConducirSolicitud() {
+	return lincenciaConducirSolicitud;
+ }
+ public void setLincenciaConducirSolicitud(String lincenciaConducirSolicitud) {
+	this.lincenciaConducirSolicitud = lincenciaConducirSolicitud;
+ }
+ public String getTipoEmpleado() {
+	return TipoEmpleado;
+ }
+ public void setTipoEmpleado(String tipoEmpleado) {
+	TipoEmpleado = tipoEmpleado;
+ }
+ public String getTituloEmpleado() {
+	return tituloEmpleado;
+ }
+ public void setTituloEmpleado(String tituloEmpleado) {
+	this.tituloEmpleado = tituloEmpleado;
+ }
+ public ArrayList<String> getIdiomasSolicitud() {
+	return idiomasSolicitud;
+ }
+ public void setIdiomasSolicitud(ArrayList<String> idiomasSolicitud) {
+	this.idiomasSolicitud = idiomasSolicitud;
+ }
+
 }
 
