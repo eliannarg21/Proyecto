@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class SolicitudPersona {
 
 private String id;
-private Persona person;
+private Persona persona;
 private int experiencia;
 private float sueldoMinimo;
 private String tipoTrabajo;
@@ -13,11 +13,11 @@ private String licenciaConducir;
 private String movilidad;
 private ArrayList<String> idiomas;
 
-public SolicitudPersona(String id, Persona person, int experiencia, float sueldoMinimo, String tipoTrabajo,
+public SolicitudPersona(String id, Persona persona, int experiencia, float sueldoMinimo, String tipoTrabajo,
 		String licenciaConducir, String movilidad, ArrayList<String> idiomas) {
 	super();
 	this.id = id;
-	this.person = person;
+	this.persona = persona;
 	this.experiencia = experiencia;
 	this.sueldoMinimo = sueldoMinimo;
 	this.tipoTrabajo = tipoTrabajo;
@@ -26,6 +26,10 @@ public SolicitudPersona(String id, Persona person, int experiencia, float sueldo
 	this.idiomas = idiomas;
 }
 
+public SolicitudPersona() {
+	// TODO Auto-generated constructor stub
+}
+/////////////////////////////////////////////////
 public String getId() {
 	return id;
 }
@@ -35,11 +39,11 @@ public void setId(String id) {
 }
 
 public Persona getPerson() {
-	return person;
+	return persona;
 }
 
 public void setPerson(Persona person) {
-	this.person = person;
+	this.persona = person;
 }
 
 public int getExperiencia() {

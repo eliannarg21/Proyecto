@@ -2,6 +2,8 @@ package Recursos;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Control {
 	
 	private ArrayList<Usuario> usuarios;
@@ -60,9 +62,6 @@ public class Control {
 		this.soliPersonas = soliPersonas;
 	}
 	
-	public void BuscarPersona() {
-		
-	}
 	
 	public void BuscarEmpresa() {
 		
@@ -72,10 +71,10 @@ public class Control {
 		
 	}
 	
-	public void GenerarSolicitudPersona() {
-		
+	public void GenerarSolicitudPersona(SolicitudPersona nuevaSolicitud) {
+		soliPersonas.add(nuevaSolicitud);
 	}
-	
+	//Generar solicitud
 	public void GenerarConsultaEmpresa() {
 		 
 	}
@@ -83,5 +82,36 @@ public class Control {
 	public void GenerarSolicitudEmpresa() {
 		 
 	}
-
+	public void RegistrarPersona(Persona nuevaPersona) {
+		
+		personas.add(nuevaPersona);
+		
+	}
+	//Registrar una nueva persona al sistema
+public boolean BuscarPersona(String id) {
+		boolean encontrado = false;
+		int i =0;
+		while(encontrado == false && i<personas.size()) {
+			if (personas.get(i).getId().compareToIgnoreCase(id)==0) {
+				encontrado = true;
+			} else {
+				i++;
+			}
+			
+		}
+		if (encontrado) {
+			JOptionPane.showMessageDialog(null, "id: " + personas.get(i).getId()
+					+"Nombre: " + personas.get(i).getNombre()
+					+"Edad: " + personas.get(i).getSexo()
+					+"Telefono: " + personas.get(i).getTelefono()
+					+"Direccion: " + personas.get(i).getDireccion()
+					+"Solicitudes: " + personas.get(i).getMisSolicitudes())
+			;
+			return false;
+		} else {
+			JOptionPane.showMessageDialog(null,"No existe el ID,intente nuevamente.");
+			return true;
+		}
+	}
+//Metodo para buscar persona por su ID
 }

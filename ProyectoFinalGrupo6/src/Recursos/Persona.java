@@ -89,4 +89,12 @@ public void setMisSolicitudes(ArrayList<SolicitudPersona> misSolicitudes) {
 	this.misSolicitudes = misSolicitudes;
 }
 
+public static void add(Persona nuevaPersona) {
+	// TODO Auto-generated method stub
+	
 }
+
+	
+}
+
+
