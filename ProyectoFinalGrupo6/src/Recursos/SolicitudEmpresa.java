@@ -13,11 +13,12 @@ public class SolicitudEmpresa {
  private String lincenciaConducirSolicitud;
  private String TipoEmpleado;
  private String tituloEmpleado;
+ private int edadMinima;
  private ArrayList<String> idiomasSolicitud;
  
  public SolicitudEmpresa(String idSolicitud, Empresa miEmpresa, int cantidad, int experienciaSolicitud,
 		float sueldoMaximoSolicitud, String tipoTrabajoSolicitud, String lincenciaConducirSolicitud,
-		String tipoEmpleado, String tituloEmpleado, ArrayList<String> idiomasSolicitud) {
+		String tipoEmpleado, String tituloEmpleado, int edadMinima, ArrayList<String> idiomasSolicitud) {
 	super();
 	this.idSolicitud = idSolicitud;
 	this.miEmpresa = miEmpresa;
@@ -28,6 +29,7 @@ public class SolicitudEmpresa {
 	this.lincenciaConducirSolicitud = lincenciaConducirSolicitud;
 	TipoEmpleado = tipoEmpleado;
 	this.tituloEmpleado = tituloEmpleado;
+	this.setEdadMinima(edadMinima);
 	this.idiomasSolicitud = idiomasSolicitud;
 }
 
@@ -91,6 +93,14 @@ public class SolicitudEmpresa {
  public void setIdiomasSolicitud(ArrayList<String> idiomasSolicitud) {
 	this.idiomasSolicitud = idiomasSolicitud;
  }
+
+public int getEdadMinima() {
+	return edadMinima;
+}
+
+public void setEdadMinima(int edadMinima) {
+	this.edadMinima = edadMinima;
+}
 
 }
 

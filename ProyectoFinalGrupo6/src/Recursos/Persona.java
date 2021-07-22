@@ -9,11 +9,11 @@ public abstract class Persona {
 	protected String nombre;
 	protected int edad;
 	protected String sexo;
-	protected int telefono;
+	protected String telefono;
 	protected String direccion;
 	protected ArrayList<SolicitudPersona> misSolicitudes;
 
-public Persona(String id, boolean status, String nombre, int edad, String sexo, int telefono, String direccion) {
+public Persona(String id, boolean status, String nombre, int edad, String sexo, String telefono, String direccion) {
 	super();
 	this.id = id;
 	this.status = status;
@@ -65,11 +65,11 @@ public void setSexo(String sexo) {
 	this.sexo = sexo;
 }
 
-public int getTelefono() {
+public String getTelefono() {
 	return telefono;
 }
 
-public void setTelefono(int telefono) {
+public void setTelefono(String telefono) {
 	this.telefono = telefono;
 }
 

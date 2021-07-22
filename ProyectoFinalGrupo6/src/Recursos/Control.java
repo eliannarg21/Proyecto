@@ -11,6 +11,7 @@ public class Control {
 	private ArrayList<Persona> personas;
 	private ArrayList<SolicitudEmpresa> soliEmpresas;
 	private ArrayList<SolicitudPersona> soliPersonas;
+	private static Control control = null;
 
 	public Control() {
 		usuarios = new ArrayList<>();
@@ -20,6 +21,13 @@ public class Control {
 		soliPersonas = new ArrayList<>();
 		Usuario admin = new Usuario("Administrador", "admin", "admin");
 		usuarios.add(admin);
+	}
+	
+	public static Control getInstance() {
+		if (control == null) {
+			control = new Control();
+		}
+		return control;
 	}
 
 	public ArrayList<Usuario> getUsuarios() {
@@ -88,7 +96,7 @@ public class Control {
 		
 	}
 	//Registrar una nueva persona al sistema
-public boolean BuscarPersona(String id) {
+	public boolean BuscarPersona(String id) {
 		boolean encontrado = false;
 		int i =0;
 		while(encontrado == false && i<personas.size()) {
@@ -113,5 +121,55 @@ public boolean BuscarPersona(String id) {
 			return true;
 		}
 	}
-//Metodo para buscar persona por su ID
+	//Metodo para buscar persona por su ID
+	
+	public Persona match() {
+		
+		Persona person = null;
+		int mayor = 0;
+		for (SolicitudEmpresa soliEmp : soliEmpresas) {
+			for (SolicitudPersona soliPer : soliPersonas) {
+				if (soliPer.getPerson().status && porcentaje(soliPer, soliEmp) >= 70) {
+					if (porcentaje(soliPer, soliEmp) > mayor) {
+						person = soliPer.getPerson();
+						mayor = porcentaje(soliPer, soliEmp);
+					}
+				}
+			}
+		}
+		return person;
+	}
+
+	public int porcentaje(SolicitudPersona soliPer, SolicitudEmpresa soliEmp) {
+		int porciento = 0;
+		
+		if (soliPer.getExperiencia() >= soliEmp.getExperienciaSolicitud())
+			porciento++;
+		if (soliPer.getLicenciaConducir().equalsIgnoreCase(soliEmp.getLincenciaConducirSolicitud()))
+			porciento++;
+		if (soliPer.getSueldoMinimo() <= soliEmp.getSueldoMaximoSolicitud())
+			porciento++;
+		if (soliPer.getTipoTrabajo().equalsIgnoreCase(soliEmp.getTipoTrabajoSolicitud()))
+			porciento++;
+		if (soliPer.getPerson().getEdad() >= soliEmp.getEdadMinima())
+			porciento++;
+		
+		if (soliPer.getPerson().getDireccion().equalsIgnoreCase(soliEmp.getMiEmpresa().getDireccionEmpresa()))
+			porciento++;
+		else if (soliPer.getMovilidad().equalsIgnoreCase("Si"))
+			porciento++;
+		
+		for (String idioma : soliEmp.getIdiomasSolicitud()) {
+			for (String idio : soliPer.getIdiomas()) {
+				if (idioma.equalsIgnoreCase(idio)) {
+					porciento++;
+				}
+			}
+		}
+		
+		float size = 6 + soliEmp.getIdiomasSolicitud().size();
+		return (int) ((porciento/size)*100);
+	}
+
+
 }

@@ -8,11 +8,11 @@ public class Empresa {
 	private String NombreEmpresa;
 	private String categoria;
 	private String DireccionEmpresa;
-	private int telefonoEmpresa;
+	private String telefonoEmpresa;
 	private ArrayList<SolicitudEmpresa> solicitudes;
 	
 	public Empresa(String idEmpresa, String nombreEmpresa, String categoria, String direccionEmpresa,
-			int telefonoEmpresa) {
+			String telefonoEmpresa) {
 		super();
 		this.idEmpresa = idEmpresa;
 		NombreEmpresa = nombreEmpresa;
@@ -54,11 +54,11 @@ public class Empresa {
 		DireccionEmpresa = direccionEmpresa;
 	}
 
-	public int getTelefonoEmpresa() {
+	public String getTelefonoEmpresa() {
 		return telefonoEmpresa;
 	}
 
-	public void setTelefonoEmpresa(int telefonoEmpresa) {
+	public void setTelefonoEmpresa(String telefonoEmpresa) {
 		this.telefonoEmpresa = telefonoEmpresa;
 	}
 
