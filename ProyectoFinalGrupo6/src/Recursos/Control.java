@@ -80,7 +80,7 @@ public class Control {
 	}
 	
 	public void GenerarSolicitudPersona(SolicitudPersona nuevaSolicitud) {
-		soliPersonas.add(nuevaSolicitud);
+	
 	}
 	//Generar solicitud
 	public void GenerarConsultaEmpresa() {
@@ -109,11 +109,17 @@ public class Control {
 		}
 		if (encontrado) {
 			JOptionPane.showMessageDialog(null, "id: " + personas.get(i).getId()
-					+"Nombre: " + personas.get(i).getNombre()
-					+"Edad: " + personas.get(i).getSexo()
-					+"Telefono: " + personas.get(i).getTelefono()
-					+"Direccion: " + personas.get(i).getDireccion()
-					+"Solicitudes: " + personas.get(i).getMisSolicitudes())
+					+"  Nombre: " + personas.get(i).getNombre()
+					+"  Edad: " + personas.get(i).getEdad()
+					+"  Sexo: " + personas.get(i).getSexo()
+					+"  Telefono: "  + personas.get(i).getTelefono()
+					+"  Direccion: " + personas.get(i).getDireccion()
+					+"  Area: " + personas.get(i).getArea()
+					+"  skills: " + personas.get(i).getSkills()
+					+"  Titulo Universitario: " + personas.get(i).getTitulo()
+				
+				
+					)
 			;
 			return false;
 		} else {

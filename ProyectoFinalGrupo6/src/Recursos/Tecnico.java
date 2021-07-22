@@ -4,7 +4,7 @@ public class Tecnico extends Persona{
 
 	private String area;
 
-	public Tecnico(String id, boolean status, String nombre, int edad, String sexo, String telefono, String direccion,
+	public Tecnico(String id, boolean status, String nombre, int edad, String sexo, int telefono, String direccion,
 			String area) {
 		super(id, status, nombre, edad, sexo, telefono, direccion);
 		this.area = area;
@@ -17,6 +17,9 @@ public class Tecnico extends Persona{
 	public void setArea(String area) {
 		this.area = area;
 	}
-	
+
+
 	}
+	
+	
 
