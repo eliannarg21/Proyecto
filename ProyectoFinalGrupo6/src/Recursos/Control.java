@@ -130,13 +130,13 @@ public class Control {
 	//Metodo para buscar persona por su ID
 	
 	public Persona match() {
-		
 		Persona person = null;
 		int mayor = 0;
+		
 		for (SolicitudEmpresa soliEmp : soliEmpresas) {
 			for (SolicitudPersona soliPer : soliPersonas) {
-				if (soliPer.getPerson().status && porcentaje(soliPer, soliEmp) >= 70) {
-					if (porcentaje(soliPer, soliEmp) > mayor) {
+				if (!soliPer.getPerson().isStatus() && soliEmp.isEstado()) {
+					if (soliPer.getEstado().equalsIgnoreCase("Activa") && porcentaje(soliPer, soliEmp) >= 70 && porcentaje(soliPer, soliEmp) > mayor) {
 						person = soliPer.getPerson();
 						mayor = porcentaje(soliPer, soliEmp);
 					}

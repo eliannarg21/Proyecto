@@ -6,6 +6,7 @@ public class SolicitudPersona {
 
 private String id;
 private Persona persona;
+private String estado;
 private int experiencia;
 private float sueldoMinimo;
 private String tipoTrabajo;
@@ -18,6 +19,7 @@ public SolicitudPersona(String id, Persona persona, int experiencia, float sueld
 	super();
 	this.id = id;
 	this.persona = persona;
+	this.setEstado("Activa");
 	this.experiencia = experiencia;
 	this.sueldoMinimo = sueldoMinimo;
 	this.tipoTrabajo = tipoTrabajo;
@@ -44,6 +46,14 @@ public Persona getPerson() {
 
 public void setPerson(Persona person) {
 	this.persona = person;
+}
+
+public String getEstado() {
+	return estado;
+}
+
+public void setEstado(String estado) {
+	this.estado = estado;
 }
 
 public int getExperiencia() {

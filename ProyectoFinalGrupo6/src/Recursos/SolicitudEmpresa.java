@@ -6,6 +6,7 @@ public class SolicitudEmpresa {
 	
  private String idSolicitud;
  private Empresa miEmpresa;
+ private boolean estado;
  private int cantidad;
  private int experienciaSolicitud;
  private float sueldoMaximoSolicitud;
@@ -22,6 +23,7 @@ public class SolicitudEmpresa {
 	super();
 	this.idSolicitud = idSolicitud;
 	this.miEmpresa = miEmpresa;
+	this.setEstado(true);
 	this.cantidad = cantidad;
 	this.experienciaSolicitud = experienciaSolicitud;
 	this.sueldoMaximoSolicitud = sueldoMaximoSolicitud;
@@ -45,6 +47,14 @@ public class SolicitudEmpresa {
  public void setMiEmpresa(Empresa miEmpresa) {
 	this.miEmpresa = miEmpresa;
  }
+ public boolean isEstado() {
+	return estado;
+}
+
+ public void setEstado(boolean estado) {
+	this.estado = estado;
+ }
+
  public int getCantidad() {
 	return cantidad;
  }
@@ -93,14 +103,12 @@ public class SolicitudEmpresa {
  public void setIdiomasSolicitud(ArrayList<String> idiomasSolicitud) {
 	this.idiomasSolicitud = idiomasSolicitud;
  }
-
-public int getEdadMinima() {
+ public int getEdadMinima() {
 	return edadMinima;
-}
-
-public void setEdadMinima(int edadMinima) {
+ }
+ public void setEdadMinima(int edadMinima) {
 	this.edadMinima = edadMinima;
-}
+ }
 
 }
 
