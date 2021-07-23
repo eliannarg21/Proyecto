@@ -1,11 +1,13 @@
 package Recursos;
 
-import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
 
 public class Control {
-	
+	Scanner console = new Scanner(System.in);
 	private ArrayList<Usuario> usuarios;
 	private ArrayList<Empresa> empresas;
 	private ArrayList<Persona> personas;
@@ -70,9 +72,15 @@ public class Control {
 		this.soliPersonas = soliPersonas;
 	}
 	
-	
-	public void BuscarEmpresa() {
-		
+	//Metodo para buscar empresa por su ID
+	public Empresa BuscarEmpresa(String idEmpresa) 
+	{
+		for (Empresa e : empresas) {
+			if(e.getIdEmpresa().equalsIgnoreCase(idEmpresa)) {
+				return e;
+			}
+		}
+		return null;
 	}
 	
 	public void GenerarConsultaPersona() {
@@ -82,7 +90,7 @@ public class Control {
 	public void GenerarSolicitudPersona(SolicitudPersona nuevaSolicitud) {
 	
 	}
-	//Generar solicitud
+
 	public void GenerarConsultaEmpresa() {
 		 
 	}
@@ -90,45 +98,123 @@ public class Control {
 	public void GenerarSolicitudEmpresa() {
 		 
 	}
-	public void RegistrarPersona(Persona nuevaPersona) {
+	//Metodo para buscar persona por su ID
+	public Persona BuscarPersona(String id) {
 		
-		personas.add(nuevaPersona);
-		
+		for (Persona p : personas)
+		{
+			if (p.getId().equalsIgnoreCase(id)){
+				return p;
+			}
+		}
+		return null;
 	}
 	//Registrar una nueva persona al sistema
-	public boolean BuscarPersona(String id) {
-		boolean encontrado = false;
-		int i =0;
-		while(encontrado == false && i<personas.size()) {
-			if (personas.get(i).getId().compareToIgnoreCase(id)==0) {
-				encontrado = true;
-			} else {
-				i++;
-			}
+
+	void RegistrarPersona(ArrayList<Persona> personas) 
+	{
+		int NumPersona = 0;
+		int tipoEmpleado;
+		System.out.print("Cuantos personas desea registrar?:");
+		NumPersona = checkInt(NumPersona);
+		for(int i = 0; i < NumPersona; i++)
+		{
+			System.out.println("\nQue tipo de empleado desea registrar?");
+			System.out.print("Ingrese 1 para , 2 para tecnico, 3 para obrero: ");
+
+			tipoEmpleado = checkIntRange(i);
+
+			switch(tipoEmpleado)
+			{
+			case 1:
+			{
+				System.out.printf("Ingrese el nombre de la persona: ");
+				Persona.nombre = console.next();
+				
+				System.out.printf("Ingrese el ID de la persona: ");
+				Persona.id = console.next();
+				
+				System.out.printf("Ingrese el sexo de la persona: ");
+				Persona.sexo = console.next();
+				
 			
-		}
-		if (encontrado) {
-			JOptionPane.showMessageDialog(null, "id: " + personas.get(i).getId()
-					+"  Nombre: " + personas.get(i).getNombre()
-					+"  Edad: " + personas.get(i).getEdad()
-					+"  Sexo: " + personas.get(i).getSexo()
-					+"  Telefono: "  + personas.get(i).getTelefono()
-					+"  Direccion: " + personas.get(i).getDireccion()
-					+"  Area: " + personas.get(i).getArea()
-					+"  skills: " + personas.get(i).getSkills()
-					+"  Titulo Universitario: " + personas.get(i).getTitulo()
+				System.out.printf("Ingrese la edad de la persona: ");
+				Persona.edad = console.nextInt();
+			
+				System.out.printf("Ingrese el telefono de la persona: ");
+				Persona.telefono = console.nextInt();
+
+				System.out.printf("Ingrese la direccion de la persona: ");
+				Persona.direccion = console.next();
 				
+
+				System.out.printf("Ingrese el grado universitario de la persona: ");
+				Universitario.titulo = console.next();
 				
-					)
-			;
-			return false;
-		} else {
-			JOptionPane.showMessageDialog(null,"No existe el ID,intente nuevamente.");
-			return true;
-		}
-	}
-	//Metodo para buscar persona por su ID
+				personas.addAll(new ArrayList<Persona> ());
+				break;	
+			}
+			}
+			}
+			}
 	
+// validar numero entero a ingresar.
+	public int checkInt(int Num)
+	{
+		do {
+			while(!console.hasNextInt())
+			{
+				System.out.println("No es un munero valido!");
+				console.next();
+			}
+			Num = console.nextInt();
+		}while (Num <= 0);
+
+		return Num;
+	}
+
+	public int checkIntRange(int Num)
+	{
+		do {
+			while(!console.hasNextInt())
+			{
+				System.out.println("No es un numero valido!");
+				console.next();
+			}
+			Num = console.nextInt();
+		}while (Num < 1 || Num > 3);
+
+		return Num;
+	}
+
+	public int checkIntRange2(int Num)
+	{
+		do {
+			while(!console.hasNextInt())
+			{
+				System.out.println("No es un numero valido!");
+				console.next();
+			}
+			Num = console.nextInt();
+		}while (Num < 1 || Num > 2);
+
+		return Num;
+	}
+
+	public double checkDouble(double Double)
+	{
+		do {
+			while(!console.hasNextDouble())
+			{
+				System.out.println("No es un numero valido!");
+				console.next();
+			}
+			 Double = console.nextDouble();
+		}while (Double <= 0);
+
+		return Double;
+	}   
+//Fin del metodo validar numero entero a ingresar
 	public Persona match() {
 		Persona person = null;
 		int mayor = 0;
