@@ -79,7 +79,7 @@ public class Control {
 		
 	}
 	
-	public void GenerarSolicitudPersona(SolicitudPersona nuevaSolicitud) {
+	public void GenerarSolicitudPersona(String idPerson, SolicitudPersona nuevaSolicitud) {
 	
 	}
 	//Generar solicitud
@@ -87,7 +87,7 @@ public class Control {
 		 
 	}
 	
-	public void GenerarSolicitudEmpresa() {
+	public void GenerarSolicitudEmpresa(String idEmpresa, SolicitudEmpresa newSolicitud) {
 		 
 	}
 	public void RegistrarPersona(Persona nuevaPersona) {
@@ -175,6 +175,28 @@ public class Control {
 		
 		float size = 6 + soliEmp.getIdiomasSolicitud().size();
 		return (int) ((porciento/size)*100);
+	}
+	
+	public void changeToDesempleado(Persona person) {
+		if (person.isStatus()) {
+			person.setStatus(false);
+			for (SolicitudPersona solicitud : person.getMisSolicitudes()) {
+				if (solicitud.getEstado().equalsIgnoreCase("En espera")) {
+					solicitud.setEstado("Activa");
+				}
+			}
+		}
+	}
+	
+	public void changeToEmpleado(Persona person) {
+		if (!person.isStatus()) {
+			person.setStatus(true);
+			for (SolicitudPersona solicitud : person.getMisSolicitudes()) {
+				if (solicitud.getEstado().equalsIgnoreCase("Activa")) {
+					solicitud.setEstado("En espera");
+				}
+			}
+		}
 	}
 
 
