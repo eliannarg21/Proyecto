@@ -103,5 +103,11 @@ public ArrayList<String> getIdiomas() {
 public void setIdiomas(ArrayList<String> idiomas) {
 	this.idiomas = idiomas;
 }
+public void GenerarSolicitudPersona( SolicitudPersona nuevaSolicitud) {
+	   
+	
+	Control.soliPersonas.add(nuevaSolicitud);//metodo generar Solicitud
+	
+}
 
 }

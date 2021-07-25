@@ -2,15 +2,16 @@ package Recursos;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
+
+
 
 public class Control {
 	
 	private ArrayList<Usuario> usuarios;
 	private ArrayList<Empresa> empresas;
 	private ArrayList<Persona> personas;
-	private ArrayList<SolicitudEmpresa> soliEmpresas;
-	private ArrayList<SolicitudPersona> soliPersonas;
+	static ArrayList<SolicitudEmpresa> soliEmpresas;
+	static ArrayList<SolicitudPersona> soliPersonas;
 	private static Control control = null;
 
 	public Control() {
@@ -59,7 +60,7 @@ public class Control {
 	}
 
 	public void setSoliEmpresas(ArrayList<SolicitudEmpresa> soliEmpresas) {
-		this.soliEmpresas = soliEmpresas;
+		Control.soliEmpresas = soliEmpresas;
 	}
 
 	public ArrayList<SolicitudPersona> getSoliPersonas() {
@@ -67,68 +68,62 @@ public class Control {
 	}
 
 	public void setSoliPersonas(ArrayList<SolicitudPersona> soliPersonas) {
-		this.soliPersonas = soliPersonas;
+		Control.soliPersonas = soliPersonas;
 	}
 	
+	//Metodo Buscar empresa por ID
 	
-	public void BuscarEmpresa() {
+	public Empresa BuscarEmpresa(String idEmpresa, SolicitudEmpresa nuevaSolicitudEmpresa) {
+		
+		for(Empresa e: empresas) {
+			if(e.getIdEmpresa().equalsIgnoreCase(idEmpresa)){
+				return e;
+			}
+			soliEmpresas.add(nuevaSolicitudEmpresa);//Generar solicitud al buscar empresa por ID
+		}
+		return null;
+	
+	}
+	//Metodo registrar nueva empresa
+public void RegistrarEmpresa(Empresa nuevaEmpresa) {
+		
+		empresas.add(nuevaEmpresa);
 		
 	}
 	
 	public void GenerarConsultaPersona() {
 		
 	}
-	
-	public void GenerarSolicitudPersona(String idPerson, SolicitudPersona nuevaSolicitud) {
-	
-	}
 	//Generar solicitud
+	
+	
 	public void GenerarConsultaEmpresa() {
 		 
 	}
 	
-	public void GenerarSolicitudEmpresa(String idEmpresa, SolicitudEmpresa newSolicitud) {
-		 
-	}
+	 
+	//Registrar una nueva persona al sistema
 	public void RegistrarPersona(Persona nuevaPersona) {
 		
 		personas.add(nuevaPersona);
 		
 	}
-	//Registrar una nueva persona al sistema
-	public boolean BuscarPersona(String id) {
-		boolean encontrado = false;
-		int i =0;
-		while(encontrado == false && i<personas.size()) {
-			if (personas.get(i).getId().compareToIgnoreCase(id)==0) {
-				encontrado = true;
-			} else {
-				i++;
-			}
-			
-		}
-		if (encontrado) {
-			JOptionPane.showMessageDialog(null, "id: " + personas.get(i).getId()
-					+"  Nombre: " + personas.get(i).getNombre()
-					+"  Edad: " + personas.get(i).getEdad()
-					+"  Sexo: " + personas.get(i).getSexo()
-					+"  Telefono: "  + personas.get(i).getTelefono()
-					+"  Direccion: " + personas.get(i).getDireccion()
-					+"  Area: " + personas.get(i).getArea()
-					+"  skills: " + personas.get(i).getSkills()
-					+"  Titulo Universitario: " + personas.get(i).getTitulo()
-				
-				
-					)
-			;
-			return false;
-		} else {
-			JOptionPane.showMessageDialog(null,"No existe el ID,intente nuevamente.");
-			return true;
-		}
-	}
 	//Metodo para buscar persona por su ID
+	public Persona BuscarPersona(String id, SolicitudPersona nuevaSolicitud) {
+		
+		for (Persona p: personas)
+		{
+			if(p.getId().equalsIgnoreCase(id)) {
+				return p;
+			}
+			soliPersonas.add(nuevaSolicitud);//Generar solicitud al buscar persona por ID
+		}
+		return null;
+		
+	}
 	
+
+	//Metodo para realizar el match de solicitudes
 	public Persona match() {
 		Persona person = null;
 		int mayor = 0;
