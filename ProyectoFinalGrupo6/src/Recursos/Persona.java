@@ -4,24 +4,24 @@ import java.util.ArrayList;
 
 public abstract class Persona {
 	
-	protected static String id;
+	protected String id;
 	protected boolean status;
-	protected static String nombre;
-	protected static int edad;
-	protected static String sexo;
-	protected static int telefono;
-	protected static String direccion;
+	protected String nombre;
+	protected int edad;
+	protected String sexo;
+	protected int telefono;
+	protected String direccion;
 	protected ArrayList<SolicitudPersona> misSolicitudes;
 
 public Persona(String id, String nombre, int edad, String sexo, int telefono, String direccion) {
 	super();
-	Persona.id = id;
+	this.id = id;
 	this.status = false;
-	Persona.nombre = nombre;
-	Persona.edad = edad;
-	Persona.sexo = sexo;
-	Persona.telefono = telefono;
-	Persona.direccion = direccion;
+	this.nombre = nombre;
+	this.edad = edad;
+	this.sexo = sexo;
+	this.telefono = telefono;
+	this.direccion = direccion;
 	this.misSolicitudes = new ArrayList<>();
 }
 
@@ -30,7 +30,7 @@ public String getId() {
 }
 
 public void setId(String id) {
-	Persona.id = id;
+	this.id = id;
 }
 
 public boolean isStatus() {
@@ -46,7 +46,7 @@ public String getNombre() {
 }
 
 public void setNombre(String nombre) {
-	Persona.nombre = nombre;
+	this.nombre = nombre;
 }
 
 public int getEdad() {
@@ -54,7 +54,7 @@ public int getEdad() {
 }
 
 public void setEdad(int edad) {
-	Persona.edad = edad;
+	this.edad = edad;
 }
 
 public String getSexo() {
@@ -62,7 +62,7 @@ public String getSexo() {
 }
 
 public void setSexo(String sexo) {
-	Persona.sexo = sexo;
+	this.sexo = sexo;
 }
 
 public int getTelefono() {
@@ -70,7 +70,7 @@ public int getTelefono() {
 }
 
 public void setTelefono(int telefono) {
-	Persona.telefono = telefono;
+	this.telefono = telefono;
 }
 
 public String getDireccion() {
@@ -78,7 +78,7 @@ public String getDireccion() {
 }
 
 public void setDireccion(String direccion) {
-	Persona.direccion = direccion;
+	this.direccion = direccion;
 }
 
 public ArrayList<SolicitudPersona> getMisSolicitudes() {
