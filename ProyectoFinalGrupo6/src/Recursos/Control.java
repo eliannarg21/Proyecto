@@ -110,8 +110,8 @@ public class Control {
 	
 	//Metodo para generar solicitud de empresa
 	public void generarSolicitudEmpresa(String idEmpresa, SolicitudEmpresa newSolicitud) {
-		Empresa m = BuscarEmpresa(idEmpresa);
-		m.getSolicitudes().add(newSolicitud);
+		Empresa e = BuscarEmpresa(idEmpresa);
+		e.getSolicitudes().add(newSolicitud);
 		control.soliEmpresas.add(newSolicitud);
 	}
 
