@@ -109,8 +109,6 @@ public class SolicitudEmpresa {
  public void setEdadMinima(int edadMinima) {
 	this.edadMinima = edadMinima;
  }
-public void GenerarSolicitudEmpresa(SolicitudEmpresa nuevaSolicitudEmpresa){
-	Control.soliEmpresas.add(nuevaSolicitudEmpresa);//Generar solicitud al buscar empresa por ID
-}
+
 }
 

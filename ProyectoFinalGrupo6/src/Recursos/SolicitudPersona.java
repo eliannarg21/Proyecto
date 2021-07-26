@@ -28,10 +28,6 @@ public SolicitudPersona(String id, Persona persona, int experiencia, float sueld
 	this.idiomas = idiomas;
 }
 
-public SolicitudPersona() {
-	// TODO Auto-generated constructor stub
-}
-/////////////////////////////////////////////////
 public String getId() {
 	return id;
 }
@@ -102,12 +98,6 @@ public ArrayList<String> getIdiomas() {
 
 public void setIdiomas(ArrayList<String> idiomas) {
 	this.idiomas = idiomas;
-}
-public void GenerarSolicitudPersona( SolicitudPersona nuevaSolicitud) {
-	   
-	
-	Control.soliPersonas.add(nuevaSolicitud);//metodo generar Solicitud
-	
 }
 
 }

@@ -9,11 +9,11 @@ public abstract class Persona {
 	protected String nombre;
 	protected int edad;
 	protected String sexo;
-	protected int telefono;
+	protected String telefono;
 	protected String direccion;
 	protected ArrayList<SolicitudPersona> misSolicitudes;
 
-public Persona(String id, String nombre, int edad, String sexo, int telefono, String direccion) {
+public Persona(String id, String nombre, int edad, String sexo, String telefono, String direccion) {
 	super();
 	this.id = id;
 	this.status = false;
@@ -65,11 +65,11 @@ public void setSexo(String sexo) {
 	this.sexo = sexo;
 }
 
-public int getTelefono() {
+public String getTelefono() {
 	return telefono;
 }
 
-public void setTelefono(int telefono) {
+public void setTelefono(String telefono) {
 	this.telefono = telefono;
 }
 
@@ -89,28 +89,6 @@ public void setMisSolicitudes(ArrayList<SolicitudPersona> misSolicitudes) {
 	this.misSolicitudes = misSolicitudes;
 }
 
-public static void add(Persona nuevaPersona) {
-	// TODO Auto-generated method stub
-	
-}
-
-public String getArea() {
-	// TODO Auto-generated method stub
-	return null;
-}
-
-public String getTitulo() {
-	// TODO Auto-generated method stub
-	return null;
-}
-
-public ArrayList<String> getSkills() {
-	// TODO Auto-generated method stub
-	return null;
-}
-
-
-	
 }
 
 

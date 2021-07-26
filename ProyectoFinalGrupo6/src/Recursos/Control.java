@@ -10,8 +10,8 @@ public class Control {
 	private ArrayList<Usuario> usuarios;
 	private ArrayList<Empresa> empresas;
 	private ArrayList<Persona> personas;
-	static ArrayList<SolicitudEmpresa> soliEmpresas;
-	static ArrayList<SolicitudPersona> soliPersonas;
+	private ArrayList<SolicitudEmpresa> soliEmpresas;
+	private ArrayList<SolicitudPersona> soliPersonas;
 	private static Control control = null;
 
 	public Control() {
@@ -60,7 +60,7 @@ public class Control {
 	}
 
 	public void setSoliEmpresas(ArrayList<SolicitudEmpresa> soliEmpresas) {
-		Control.soliEmpresas = soliEmpresas;
+		this.soliEmpresas = soliEmpresas;
 	}
 
 	public ArrayList<SolicitudPersona> getSoliPersonas() {
@@ -68,60 +68,52 @@ public class Control {
 	}
 
 	public void setSoliPersonas(ArrayList<SolicitudPersona> soliPersonas) {
-		Control.soliPersonas = soliPersonas;
+		this.soliPersonas = soliPersonas;
 	}
 	
 	//Metodo Buscar empresa por ID
-	
-	public Empresa BuscarEmpresa(String idEmpresa, SolicitudEmpresa nuevaSolicitudEmpresa) {
-		
+	public Empresa BuscarEmpresa(String idEmpresa) {
 		for(Empresa e: empresas) {
 			if(e.getIdEmpresa().equalsIgnoreCase(idEmpresa)){
 				return e;
 			}
-			soliEmpresas.add(nuevaSolicitudEmpresa);//Generar solicitud al buscar empresa por ID
 		}
 		return null;
-	
 	}
+	
 	//Metodo registrar nueva empresa
-public void RegistrarEmpresa(Empresa nuevaEmpresa) {
-		
+	public void RegistrarEmpresa(Empresa nuevaEmpresa) {
 		empresas.add(nuevaEmpresa);
-		
 	}
-	
-	public void GenerarConsultaPersona() {
-		
-	}
-	//Generar solicitud
-	
-	
-	public void GenerarConsultaEmpresa() {
-		 
-	}
-	
 	 
-	//Registrar una nueva persona al sistema
+	//Registrar una nueva persona
 	public void RegistrarPersona(Persona nuevaPersona) {
-		
 		personas.add(nuevaPersona);
-		
 	}
+	
 	//Metodo para buscar persona por su ID
-	public Persona BuscarPersona(String id, SolicitudPersona nuevaSolicitud) {
-		
-		for (Persona p: personas)
-		{
+	public Persona BuscarPersona(String id) {
+		for(Persona p: personas) {
 			if(p.getId().equalsIgnoreCase(id)) {
 				return p;
 			}
-			soliPersonas.add(nuevaSolicitud);//Generar solicitud al buscar persona por ID
 		}
 		return null;
-		
 	}
 	
+	//Metodo para generar solicitud de persona
+	public void generarSolicitudPersona(String idPerson, SolicitudPersona nuevaSolicitud) {
+		Persona p = BuscarPersona(idPerson);
+		p.getMisSolicitudes().add(nuevaSolicitud);
+		control.soliPersonas.add(nuevaSolicitud);
+	}
+	
+	//Metodo para generar solicitud de empresa
+	public void generarSolicitudEmpresa(String idEmpresa, SolicitudEmpresa newSolicitud) {
+		Empresa m = BuscarEmpresa(idEmpresa);
+		m.getSolicitudes().add(newSolicitud);
+		control.soliEmpresas.add(newSolicitud);
+	}
 
 	//Metodo para realizar el match de solicitudes
 	public Persona match() {
