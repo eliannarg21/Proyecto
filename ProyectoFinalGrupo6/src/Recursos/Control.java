@@ -122,7 +122,7 @@ public class Control {
 		
 		for (SolicitudEmpresa soliEmp : soliEmpresas) {
 			for (SolicitudPersona soliPer : soliPersonas) {
-				if (!soliPer.getPerson().isStatus() && soliEmp.isEstado()) {
+				if (!soliPer.getPerson().isStatus() && soliEmp.isEstado() && checkSimilitud(soliPer, soliEmp)) {
 					if (soliPer.getEstado().equalsIgnoreCase("Activa") && porcentaje(soliPer, soliEmp) >= 70 && porcentaje(soliPer, soliEmp) > mayor) {
 						person = soliPer.getPerson();
 						mayor = porcentaje(soliPer, soliEmp);
@@ -162,6 +162,28 @@ public class Control {
 		
 		float size = 6 + soliEmp.getIdiomasSolicitud().size();
 		return (int) ((porciento/size)*100);
+	}
+	
+	public boolean checkSimilitud(SolicitudPersona soliPerson, SolicitudEmpresa soliEmpresa) {
+		boolean check = false;
+		
+		if (soliPerson.getPerson() instanceof Tecnico) {
+			if (soliEmpresa.getTipoEmpleado().equalsIgnoreCase("Tecnico")) {
+				Tecnico t = (Tecnico) soliPerson.getPerson();
+				if (soliEmpresa.getTituloEmpleado().equalsIgnoreCase(t.getArea())) {
+					check = true;
+				}
+			}
+		} else if (soliPerson.getPerson() instanceof Universitario) {
+			if (soliEmpresa.getTipoEmpleado().equalsIgnoreCase("Universitario")) {
+				Universitario u = (Universitario) soliPerson.getPerson();
+				if (soliEmpresa.getTituloEmpleado().equalsIgnoreCase(u.getTitulo())) {
+					check = true;
+				}
+			}
+		}
+		
+		return check;
 	}
 	
 	public void changeToDesempleado(Persona person) {
