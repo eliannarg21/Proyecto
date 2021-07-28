@@ -11,9 +11,10 @@ public abstract class Persona {
 	protected String sexo;
 	protected String telefono;
 	protected String direccion;
+	protected String provincia;
 	protected ArrayList<SolicitudPersona> misSolicitudes;
 
-public Persona(String id, String nombre, int edad, String sexo, String telefono, String direccion) {
+public Persona(String id, String nombre, int edad, String sexo, String telefono, String direccion, String provincia) {
 	super();
 	this.id = id;
 	this.status = false;
@@ -22,6 +23,7 @@ public Persona(String id, String nombre, int edad, String sexo, String telefono,
 	this.sexo = sexo;
 	this.telefono = telefono;
 	this.direccion = direccion;
+	this.provincia = provincia;
 	this.misSolicitudes = new ArrayList<>();
 }
 
@@ -79,6 +81,14 @@ public String getDireccion() {
 
 public void setDireccion(String direccion) {
 	this.direccion = direccion;
+}
+
+public String getProvincia() {
+	return provincia;
+}
+
+public void setProvincia(String provincia) {
+	this.provincia = provincia;
 }
 
 public ArrayList<SolicitudPersona> getMisSolicitudes() {
