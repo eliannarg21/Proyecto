@@ -47,4 +47,3 @@ public class RegistroPersona extends JDialog {
 	}
 
 }
-//
