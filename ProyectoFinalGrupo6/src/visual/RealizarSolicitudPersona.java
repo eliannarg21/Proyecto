@@ -58,6 +58,7 @@ public class RealizarSolicitudPersona extends JDialog {
 	private JCheckBox chckbxFrances;
 	private int cantIdiomas = 0;
 	private JTextField txtSueldo;
+	private JLabel lblTitulo;
 
 	/**
 	 * Launch the application.
@@ -177,6 +178,7 @@ public class RealizarSolicitudPersona extends JDialog {
 					rdbtnTecnico.setSelected(true);
 					rdbtnObrero.setSelected(false);
 					rdbtnUniversitario.setSelected(false);
+					lblTitulo.setText("Área:");
 				}
 			});
 			rdbtnTecnico.setEnabled(false);
@@ -190,6 +192,7 @@ public class RealizarSolicitudPersona extends JDialog {
 					rdbtnUniversitario.setSelected(true);
 					rdbtnObrero.setSelected(false);
 					rdbtnTecnico.setSelected(false);
+					lblTitulo.setText("Título:");
 				}
 			});
 			rdbtnUniversitario.setEnabled(false);
@@ -202,6 +205,7 @@ public class RealizarSolicitudPersona extends JDialog {
 					rdbtnObrero.setSelected(true);
 					rdbtnTecnico.setSelected(false);
 					rdbtnUniversitario.setSelected(false);
+					lblTitulo.setText("Skill:");
 				}
 			});
 			rdbtnObrero.setEnabled(false);
@@ -333,19 +337,19 @@ public class RealizarSolicitudPersona extends JDialog {
 			chckbxEspanol.setBounds(144, 145, 81, 23);
 			panel_2.add(chckbxEspanol);
 			
-			chckbxIngles = new JCheckBox("Ingles");
+			chckbxIngles = new JCheckBox("Inglés");
 			chckbxIngles.setEnabled(false);
 			chckbxIngles.setBounds(237, 145, 70, 23);
 			panel_2.add(chckbxIngles);
 			
-			chckbxFrances = new JCheckBox("Frances");
+			chckbxFrances = new JCheckBox("Francés");
 			chckbxFrances.setEnabled(false);
 			chckbxFrances.setBounds(330, 145, 81, 23);
 			panel_2.add(chckbxFrances);
 			
-			JLabel lblNewLabel_14 = new JLabel("Título:");
-			lblNewLabel_14.setBounds(6, 8, 61, 16);
-			panel_2.add(lblNewLabel_14);
+			lblTitulo = new JLabel("Área:");
+			lblTitulo.setBounds(6, 8, 61, 16);
+			panel_2.add(lblTitulo);
 			
 			txtTitulo = new JTextField();
 			txtTitulo.setEditable(false);
@@ -392,6 +396,7 @@ public class RealizarSolicitudPersona extends JDialog {
 						if (chckbxFrances.isSelected()) {
 							idiomas.add("Frances");
 						}
+						
 						Persona aux = Control.getInstance().BuscarPersona(txtCedula.getText());
 						if (aux != null) {
 							
@@ -415,13 +420,13 @@ public class RealizarSolicitudPersona extends JDialog {
 							} else if (rdbtnObrero.isSelected()) {
 								aux = new Obrero(id, nombre, edad, sexo, telefono, direccion, provincia, titulo);
 							}
-							Control.getInstance().getPersonas().add(aux);
+							
 							SolicitudPersona soli = new SolicitudPersona("SP-"+SolicitudPersona.generadorId, aux, experiencia, sueldo, tipo, licencia, movilidad, idiomas);
+							Control.getInstance().getPersonas().add(aux);
 							aux.getMisSolicitudes().add(soli);
 							Control.getInstance().getSoliPersonas().add(soli);
-							
 						}
-						JOptionPane.showMessageDialog(null, "Registrado satisfactoriamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Realizado satisfactoriamente", "Información", JOptionPane.INFORMATION_MESSAGE);
 						txtCedula.setText("");
 						cleanRealizar();
 					}

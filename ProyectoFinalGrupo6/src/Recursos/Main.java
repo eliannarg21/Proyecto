@@ -25,7 +25,7 @@ public class Main {
 		u2.getMisSolicitudes().add(s2);
 		t3.getMisSolicitudes().add(s3);
 		
-		Empresa e = new Empresa("E1", "Homs", "salud", "santiago", "809");
+		Empresa e = new Empresa("E1", "Homs", "salud", "santiago", "809", "Santiago");
 		SolicitudEmpresa se1 = new SolicitudEmpresa("S4", e, 1, 3, 35, "Completo", "Si", "Universitario", "ing sistemas", 18, idiomas);
 		e.getSolicitudes().add(se1);
 		

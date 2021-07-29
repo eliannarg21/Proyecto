@@ -9,16 +9,18 @@ public class Empresa {
 	private String categoria;
 	private String DireccionEmpresa;
 	private String telefonoEmpresa;
+	private String provincia;
 	private ArrayList<SolicitudEmpresa> solicitudes;
 	
 	public Empresa(String idEmpresa, String nombreEmpresa, String categoria, String direccionEmpresa,
-			String telefonoEmpresa) {
+			String telefonoEmpresa, String provincia) {
 		super();
 		this.idEmpresa = idEmpresa;
 		NombreEmpresa = nombreEmpresa;
 		this.categoria = categoria;
 		DireccionEmpresa = direccionEmpresa;
 		this.telefonoEmpresa = telefonoEmpresa;
+		this.setProvincia(provincia);
 		this.solicitudes = new ArrayList<>();
 	}
 
@@ -68,6 +70,14 @@ public class Empresa {
 
 	public void setSolicitudes(ArrayList<SolicitudEmpresa> solicitudes) {
 		this.solicitudes = solicitudes;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
 	}
 	
 }

@@ -16,6 +16,7 @@ public class SolicitudEmpresa {
  private String tituloEmpleado;
  private int edadMinima;
  private ArrayList<String> idiomasSolicitud;
+ public static int generadorId = 1;
  
  public SolicitudEmpresa(String idSolicitud, Empresa miEmpresa, int cantidad, int experienciaSolicitud,
 		float sueldoMaximoSolicitud, String tipoTrabajoSolicitud, String lincenciaConducirSolicitud,
@@ -33,6 +34,7 @@ public class SolicitudEmpresa {
 	this.tituloEmpleado = tituloEmpleado;
 	this.setEdadMinima(edadMinima);
 	this.idiomasSolicitud = idiomasSolicitud;
+	generadorId++;
 }
 
  public String getIdSolicitud() {
