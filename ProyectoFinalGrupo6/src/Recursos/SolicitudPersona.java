@@ -13,6 +13,7 @@ private String tipoTrabajo;
 private String licenciaConducir;
 private String movilidad;
 private ArrayList<String> idiomas;
+public static int generadorId = 1;
 
 public SolicitudPersona(String id, Persona persona, int experiencia, float sueldoMinimo, String tipoTrabajo,
 		String licenciaConducir, String movilidad, ArrayList<String> idiomas) {
@@ -26,6 +27,7 @@ public SolicitudPersona(String id, Persona persona, int experiencia, float sueld
 	this.licenciaConducir = licenciaConducir;
 	this.movilidad = movilidad;
 	this.idiomas = idiomas;
+	generadorId++;
 }
 
 public String getId() {

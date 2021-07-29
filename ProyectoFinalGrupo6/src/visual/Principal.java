@@ -6,10 +6,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Recursos.Control;
+import Recursos.Empresa;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Principal extends JFrame {
 
@@ -70,6 +76,13 @@ public class Principal extends JFrame {
 		mnNewMenu_1.add(mnNewMenu_5);
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Realizar");
+		mntmNewMenuItem_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RealizarSolicitudPersona sp = new RealizarSolicitudPersona();
+				sp.setModal(true);
+				sp.setVisible(true);
+			}
+		});
 		mnNewMenu_5.add(mntmNewMenuItem_4);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Listar");
@@ -79,6 +92,13 @@ public class Principal extends JFrame {
 		mnNewMenu_1.add(mnNewMenu_6);
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Realizar");
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RealizarSolicitudEmpresa soliEmp = new RealizarSolicitudEmpresa();
+				soliEmp.setModal(true);
+				soliEmp.setVisible(true);
+			}
+		});
 		mnNewMenu_6.add(mntmNewMenuItem_6);
 		
 		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Listar");
