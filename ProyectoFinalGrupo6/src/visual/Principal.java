@@ -77,6 +77,15 @@ public class Principal extends JFrame {
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Registrar");
 		mnNewMenu_4.add(mntmNewMenuItem_2);
 		
+		mntmNewMenuItem_2.addActionListener(new ActionListener()  {
+			public void actionPerformed(ActionEvent e) {
+				RegistroEmpresas regE = new RegistroEmpresas();
+				regE.setModal(true);
+				regE.setVisible(true);
+			}
+		});
+		mnNewMenu_3.add(mntmNewMenuItem_3);
+		
 		JMenuItem mntmNewMenuItem_0 = new JMenuItem("Listar");
 		mnNewMenu_4.add(mntmNewMenuItem_0);
 		

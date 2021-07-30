@@ -56,7 +56,7 @@ public class RegistroPersona extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Nombre:");
 		
-		JLabel lblNewLabel_1 = new JLabel("Identificación:");
+		JLabel lblNewLabel_1 = new JLabel("Cédula:");
 		
 		JLabel lblNewLabel_2 = new JLabel("Teléfono:");
 		
@@ -80,21 +80,13 @@ public class RegistroPersona extends JFrame {
 		
 		JSpinner spinner = new JSpinner();
 		
-		JLabel lblNewLabel_4 = new JLabel("Edad");
+		JLabel lblNewLabel_4 = new JLabel("Edad:");
 		
-		JLabel lblNewLabel_5 = new JLabel("Sexo");
+		JLabel lblNewLabel_5 = new JLabel("Sexo:");
 		
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(149)
-					.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
-					.addGap(49)
-					.addComponent(rdbtnNewRadioButton_1)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(rdbtnNewRadioButton)
-					.addGap(15))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(29)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
@@ -105,18 +97,28 @@ public class RegistroPersona extends JFrame {
 					.addGap(18)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(20)
-							.addComponent(lblNewLabel_4)
-							.addGap(96)
-							.addComponent(lblNewLabel_5)
-							.addContainerGap())
-						.addGroup(gl_panel.createSequentialGroup()
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 								.addComponent(textField_3, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-								.addComponent(textField_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
 								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-								.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE))
-							.addGap(43))))
+								.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(textField_2, Alignment.LEADING)
+									.addComponent(textField_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)))
+							.addGap(43))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(20)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
+									.addGap(37)
+									.addComponent(rdbtnNewRadioButton_1)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addComponent(rdbtnNewRadioButton))
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGap(8)
+									.addComponent(lblNewLabel_4)
+									.addGap(77)
+									.addComponent(lblNewLabel_5)))
+							.addGap(130))))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap(334, Short.MAX_VALUE)
 					.addComponent(btnNewButton)
@@ -134,19 +136,15 @@ public class RegistroPersona extends JFrame {
 						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_1))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_5)
 						.addComponent(lblNewLabel_4))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(rdbtnNewRadioButton_1)
-								.addComponent(rdbtnNewRadioButton))
-							.addGap(12))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)))
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(rdbtnNewRadioButton_1)
+						.addComponent(rdbtnNewRadioButton))
+					.addGap(12)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_2))
@@ -162,11 +160,15 @@ public class RegistroPersona extends JFrame {
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addComponent(panel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addComponent(panel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
