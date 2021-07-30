@@ -50,12 +50,23 @@ public class Principal extends JFrame {
 		
 		JMenu mnNewMenu = new JMenu("Clientes");
 		menuBar.add(mnNewMenu);
+	
 		
 		JMenu mnNewMenu_3 = new JMenu("Personas");
 		mnNewMenu.add(mnNewMenu_3);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Registrar");
-		mnNewMenu_3.add(mntmNewMenuItem);
+		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Registrar");
+		
+		
+		mntmNewMenuItem_3.addActionListener(new ActionListener()  {
+			public void actionPerformed(ActionEvent e) {
+				RegistroPersona reg = new RegistroPersona();
+				reg.setModal(true);
+				reg.setVisible(true);
+			}
+		});
+		mnNewMenu_3.add(mntmNewMenuItem_3);
+		//Codigo Registro de persona.
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Listar");
 		mnNewMenu_3.add(mntmNewMenuItem_1);
@@ -66,8 +77,8 @@ public class Principal extends JFrame {
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Registrar");
 		mnNewMenu_4.add(mntmNewMenuItem_2);
 		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Listar");
-		mnNewMenu_4.add(mntmNewMenuItem_3);
+		JMenuItem mntmNewMenuItem_0 = new JMenuItem("Listar");
+		mnNewMenu_4.add(mntmNewMenuItem_0);
 		
 		JMenu mnNewMenu_1 = new JMenu("Solicitudes");
 		menuBar.add(mnNewMenu_1);
