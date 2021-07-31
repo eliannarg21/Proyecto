@@ -18,7 +18,7 @@ import javax.swing.JSpinner;
 public class RegistroPersona extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField txtNombre;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -62,8 +62,8 @@ public class RegistroPersona extends JFrame {
 		
 		JLabel lblNewLabel_3 = new JLabel("Dirección:");
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		txtNombre = new JTextField();
+		txtNombre.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
@@ -98,11 +98,10 @@ public class RegistroPersona extends JFrame {
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(textField_3, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-								.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-									.addComponent(textField_2, Alignment.LEADING)
-									.addComponent(textField_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)))
+								.addComponent(textField_3, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+								.addComponent(txtNombre, GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE))
 							.addGap(43))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(20)
@@ -129,7 +128,7 @@ public class RegistroPersona extends JFrame {
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(23)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
@@ -152,7 +151,7 @@ public class RegistroPersona extends JFrame {
 					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
 						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_3))
-					.addPreferredGap(ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
 					.addComponent(btnNewButton)
 					.addContainerGap())
 		);
