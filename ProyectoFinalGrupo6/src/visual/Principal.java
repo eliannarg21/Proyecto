@@ -106,6 +106,13 @@ public class Principal extends JFrame {
 		mnNewMenu_5.add(mntmNewMenuItem_4);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Listar");
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListSolicitudPersona lista = new ListSolicitudPersona();
+				lista.setModal(true);
+				lista.setVisible(true);
+			}
+		});
 		mnNewMenu_5.add(mntmNewMenuItem_5);
 		
 		JMenu mnNewMenu_6 = new JMenu("Empresa");
@@ -122,6 +129,13 @@ public class Principal extends JFrame {
 		mnNewMenu_6.add(mntmNewMenuItem_6);
 		
 		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Listar");
+		mntmNewMenuItem_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListSolicitudEmpresa lista = new ListSolicitudEmpresa();
+				lista.setModal(true);
+				lista.setVisible(true);
+			}
+		});
 		mnNewMenu_6.add(mntmNewMenuItem_7);
 		
 		JMenu mnNewMenu_2 = new JMenu("Administración");
@@ -131,12 +145,26 @@ public class Principal extends JFrame {
 		mnNewMenu_2.add(mnNewMenu_7);
 		
 		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Registrar");
+		mntmNewMenuItem_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				regUser registar = new regUser();
+				registar.setModal(true);
+				registar.setVisible(true);
+			}
+		});
 		mnNewMenu_7.add(mntmNewMenuItem_8);
 		
 		JMenuItem mntmNewMenuItem_9 = new JMenuItem("Listar");
 		mnNewMenu_7.add(mntmNewMenuItem_9);
 		
 		JMenuItem mntmNewMenuItem_10 = new JMenuItem("Realizar match");
+		mntmNewMenuItem_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RealizarMatch match = new RealizarMatch();
+				match.setModal(true);
+				match.setVisible(true);
+			}
+		});
 		mnNewMenu_2.add(mntmNewMenuItem_10);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

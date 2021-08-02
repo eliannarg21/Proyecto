@@ -100,6 +100,24 @@ public class Control {
 		return null;
 	}
 	
+	public SolicitudPersona BuscarSoliPersona(String id) {
+		for(SolicitudPersona sp: soliPersonas) {
+			if(sp.getId().equalsIgnoreCase(id)) {
+				return sp;
+			}
+		}
+		return null;
+	}
+	
+	public SolicitudEmpresa BuscarSoliEmpresa(String id) {
+		for(SolicitudEmpresa se: soliEmpresas) {
+			if(se.getIdSolicitud().equalsIgnoreCase(id)) {
+				return se;
+			}
+		}
+		return null;
+	}
+	
 	//Metodo para generar solicitud de persona
 	public void generarSolicitudPersona(String idPerson, SolicitudPersona nuevaSolicitud) {
 		Persona p = BuscarPersona(idPerson);
@@ -115,17 +133,15 @@ public class Control {
 	}
 
 	//Metodo para realizar el match de solicitudes
-	public Persona match() {
-		Persona person = null;
+	public SolicitudPersona match(SolicitudEmpresa solicitud) {
+		SolicitudPersona person = null;
 		int mayor = 0;
 		
-		for (SolicitudEmpresa soliEmp : soliEmpresas) {
-			for (SolicitudPersona soliPer : soliPersonas) {
-				if (!soliPer.getPerson().isStatus() && soliEmp.isEstado() && checkSimilitud(soliPer, soliEmp)) {
-					if (soliPer.getEstado().equalsIgnoreCase("Activa") && porcentaje(soliPer, soliEmp) >= 70 && porcentaje(soliPer, soliEmp) > mayor) {
-						person = soliPer.getPerson();
-						mayor = porcentaje(soliPer, soliEmp);
-					}
+		for (SolicitudPersona soliPer : soliPersonas) {
+			if (!soliPer.getPerson().isStatus() && solicitud.isEstado() && checkSimilitud(soliPer, solicitud)) {
+				if (soliPer.getEstado().equalsIgnoreCase("Activa") && porcentaje(soliPer, solicitud) >= 70 && porcentaje(soliPer, solicitud) > mayor) {
+					person = soliPer;
+					mayor = porcentaje(soliPer, solicitud);
 				}
 			}
 		}

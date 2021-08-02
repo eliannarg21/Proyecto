@@ -27,7 +27,7 @@ public SolicitudPersona(String id, Persona persona, int experiencia, float sueld
 	this.licenciaConducir = licenciaConducir;
 	this.movilidad = movilidad;
 	this.idiomas = idiomas;
-	generadorId++;
+	SolicitudPersona.generadorId++;
 }
 
 public String getId() {

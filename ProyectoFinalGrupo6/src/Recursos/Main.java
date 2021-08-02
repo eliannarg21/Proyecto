@@ -39,9 +39,9 @@ public class Main {
 		Control.getInstance().getEmpresas().add(e);
 		Control.getInstance().getSoliEmpresas().add(se1);
 		
-		Persona p = Control.getInstance().match();
+		//Persona p = Control.getInstance().match();
 		
-		System.out.println(p.getNombre());
+		//System.out.println(p.getNombre());
 		System.out.println(Control.getInstance().porcentaje(s1, se1));
 		System.out.println(Control.getInstance().porcentaje(s2, se1));
 		System.out.println(Control.getInstance().checkSimilitud(s3, se1));

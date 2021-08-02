@@ -34,7 +34,7 @@ public class SolicitudEmpresa {
 	this.tituloEmpleado = tituloEmpleado;
 	this.setEdadMinima(edadMinima);
 	this.idiomasSolicitud = idiomasSolicitud;
-	generadorId++;
+	SolicitudEmpresa.generadorId++;
 }
 
  public String getIdSolicitud() {
