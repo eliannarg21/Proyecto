@@ -97,29 +97,25 @@ public class RegistroPersona extends JDialog {
 						.addComponent(lblNewLabel_3))
 					.addGap(36)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(textField_3)
+								.addGroup(gl_contentPanel.createSequentialGroup()
+									.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addGap(18)
+									.addComponent(lblNewLabel_6)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(rdbtnNewRadioButton, GroupLayout.PREFERRED_SIZE, 62, GroupLayout.PREFERRED_SIZE)))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(rdbtnNewRadioButton_1, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE))
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPanel.createSequentialGroup()
 							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(lblNewLabel_5)
-							.addGap(6)
+							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPanel.createSequentialGroup()
-							.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
-								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_contentPanel.createSequentialGroup()
-									.addGroup(gl_contentPanel.createParallelGroup(Alignment.TRAILING, false)
-										.addComponent(textField_3, Alignment.LEADING)
-										.addGroup(Alignment.LEADING, gl_contentPanel.createSequentialGroup()
-											.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-											.addGap(18)
-											.addComponent(lblNewLabel_6)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(rdbtnNewRadioButton, GroupLayout.PREFERRED_SIZE, 62, GroupLayout.PREFERRED_SIZE)))
-									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(rdbtnNewRadioButton_1, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)))
-							.addPreferredGap(ComponentPlacement.RELATED)))
-					.addGap(5))
+						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)))
 		);
 		gl_contentPanel.setVerticalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
@@ -161,6 +157,13 @@ public class RegistroPersona extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("Registrar");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();{
+		
+						}
+					}
+				});
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);

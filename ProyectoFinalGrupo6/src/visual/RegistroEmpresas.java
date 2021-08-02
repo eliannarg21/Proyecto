@@ -151,6 +151,7 @@ public class RegistroEmpresas extends JDialog {
 				JButton okButton = new JButton("Registrar");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+                   dispose();
 					}
 				});
 				okButton.setActionCommand("OK");
