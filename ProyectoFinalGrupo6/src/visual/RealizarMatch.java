@@ -77,7 +77,7 @@ public class RealizarMatch extends JDialog {
 			panel.add(scrollPane);
 			{
 				model = new DefaultTableModel();
-				String headers[] = {"Empresa", "Solicitud", "Empleado", "Porcentaje"};
+				String headers[] = {"Empresa", "Solicitud","Título", "Empleado", "Porcentaje"};
 				model.setColumnIdentifiers(headers);
 				loadtable(0);
 				table = new JTable();
@@ -137,11 +137,21 @@ public class RealizarMatch extends JDialog {
 		
 		for (SolicitudEmpresa se: Control.getInstance().getSoliEmpresas()) {
 			SolicitudPersona p = Control.getInstance().match(se);
-			rows[0] = se.getMiEmpresa().getNombreEmpresa();
-			rows[1] = se.getIdSolicitud();
-			rows[2] = p.getPerson().getNombre();
-			rows[3] = Control.getInstance().porcentaje(p, se);
-			model.addRow(rows);
+			if (p != null) {
+				rows[0] = se.getMiEmpresa().getNombreEmpresa();
+				rows[1] = se.getIdSolicitud();
+				rows[2] = se.getTituloEmpleado();
+				rows[3] = p.getPerson().getNombre();
+				rows[4] = Control.getInstance().porcentaje(p, se);
+				model.addRow(rows);
+			} else {
+				rows[0] = se.getMiEmpresa().getNombreEmpresa();
+				rows[1] = se.getIdSolicitud();
+				rows[2] = "Sin resultado";
+				rows[3] = "Sin resultado";
+				rows[4] = "Sin resultado";
+				model.addRow(rows);
+			}
 		}
 	}
 }
