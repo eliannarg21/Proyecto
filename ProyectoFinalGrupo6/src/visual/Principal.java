@@ -181,7 +181,7 @@ public class Principal extends JFrame {
 				registar.setModal(true);
 				registar.setVisible(true);
 			}
-		});
+		});//
 		mnNewMenu_7.add(mntmNewMenuItem_8);
 		
 		JMenuItem mntmNewMenuItem_9 = new JMenuItem("Listar");
