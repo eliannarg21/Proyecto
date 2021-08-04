@@ -79,6 +79,7 @@ public class RealizarSolicitudPersona extends JDialog {
 	public RealizarSolicitudPersona() {
 		setTitle("Solicitud Persona");
 		setBounds(100, 100, 450, 498);
+		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
