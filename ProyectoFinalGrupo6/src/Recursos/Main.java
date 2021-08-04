@@ -14,8 +14,8 @@ public class Main {
 		ArrayList<String> idiomas2 = new ArrayList<>();
 		idiomas2.add("Español");
 		
-		Universitario u1 = new Universitario("031", "Jose", 25, "Masculino", "809", "Santiago", "Santiago", "Ing Sistemas");
-		Universitario u2 = new Universitario("402", "Juan", 35, "Masculino", "849", "Santo Domingo", "Santo Domingo", "Ing Sistemas");
+		Universitario u1 = new Universitario("031", "Jose", "Santiago", "Masculino", "809", "Santiago", 25, "Ing Sistemas");
+		Universitario u2 = new Universitario("402", "Juan", "Santo Domingo", "Masculino", "849", "Santo Domingo", 35, "Ing Sistemas");
 		Tecnico t3 = new Tecnico("444", "mario", 20, "Masculino", "444", "Santiago", "Santiago", "Electricista");
 		
 		SolicitudPersona s1 = new SolicitudPersona("S1", u1, 4, 18, "PartTime", "si", "No", idiomas2);

@@ -15,7 +15,7 @@ public class Persona {
 	protected ArrayList<SolicitudPersona> misSolicitudes;
 
 //arreglar con todas las variables que lleva
-	public Persona(String id, String nombre, String sexo, String telefono) {
+	public Persona(String id, String nombre, String sexo, String telefono, String provincia, String direccion, int edad) {
 	super();
 	this.id = id;
 	this.status = false;

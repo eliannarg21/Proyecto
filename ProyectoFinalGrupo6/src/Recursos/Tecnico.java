@@ -6,7 +6,7 @@ public class Tecnico extends Persona{
 
 	public Tecnico(String id, String nombre, int edad, String sexo, String telefono, String direccion,
 			String provincia, String area) {
-		super(id, nombre, edad, sexo, telefono, direccion, provincia);
+		super(id, nombre, provincia, sexo, telefono, direccion, edad);
 		this.area = area;
 	}
 

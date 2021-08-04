@@ -8,7 +8,7 @@ public class Obrero extends Persona {
 
 	public Obrero(String id, String nombre, int edad, String sexo, String telefono, String direccion,
 			String provincia, String skills) {
-		super(id, nombre, edad, sexo, telefono, direccion, provincia);
+		super(id, nombre, provincia, sexo, telefono, direccion, edad);
 		this.skills = skills;
 	}
 

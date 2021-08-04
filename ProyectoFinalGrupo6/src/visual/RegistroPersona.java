@@ -32,8 +32,10 @@ public class RegistroPersona extends JDialog {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+    private JTextField textField_4;
 	
 	 static ArrayList<Persona> personas;//
+	
 	/**
 	 * Launch the application.
 	 */
@@ -87,14 +89,14 @@ public class RegistroPersona extends JDialog {
 		
 		JSpinner spinner = new JSpinner();
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Azua", "Bahoruco", "Barahona", "Dajabón", "Distrito Nacional", "Duarte", "Elías Piña", "El Seibo", "Espaillat", "Hato Mayor", "Hermanas Mirabal", "Independencia", "La Altagracia", "La Romana", "La Vega", "María Trinidad Sánchez", "Monseñor Nouel", "Monte Cristi", "Monte Plata", "Pedernales", "Peravia", "Puerto Plata", "Samaná", "Sánchez Ramírez", "San Cristóbal", "San José de Ocoa", "San Juan", "San Pedro de Macorís", "Santiago", "Santiago Rodríguez", "Santo Domingo", "Valverde"}));
-		
 		JLabel lblNewLabel_6 = new JLabel("Sexo:");
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("M");
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("F");
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
 		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
 		gl_contentPanel.setHorizontalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
@@ -126,7 +128,7 @@ public class RegistroPersona extends JDialog {
 							.addComponent(lblNewLabel_5)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE)))
 		);
 		gl_contentPanel.setVerticalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
@@ -156,10 +158,10 @@ public class RegistroPersona extends JDialog {
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_3)
 						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
+					.addPreferredGap(ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.TRAILING)
 						.addComponent(lblNewLabel_4)
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 		);
 		contentPanel.setLayout(gl_contentPanel);
 		{
@@ -174,9 +176,13 @@ public class RegistroPersona extends JDialog {
 						String telefono = textField_1.getText();
 						String id = textField_2.getText();
 						String direccion = textField_3.getText();
+						int edad = spinner.getComponentCount();
+						String sexo = rdbtnNewRadioButton.getLabel();
+						String sexo2 = rdbtnNewRadioButton_1.getLabel();
+						String provincia = textField_4.getText();
+						Persona persona = new Persona (id, nombre, telefono, direccion,sexo,provincia,edad);//agregar variables que faltan
 						
-						Persona persona = new Persona (id, nombre, telefono, direccion);//agregar variables que faltan
-						 personas.add(persona);
+						personas.add(persona);
 						
 					}
 				});
