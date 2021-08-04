@@ -415,11 +415,11 @@ public class RealizarSolicitudPersona extends JDialog {
 							String titulo = txtTitulo.getText();
 							
 							if (rdbtnTecnico.isSelected()) {
-								aux = new Tecnico(id, nombre, edad, sexo, telefono, direccion, provincia, titulo);
+								aux = new Tecnico(id, nombre, telefono, sexo, edad, direccion, provincia, titulo);
 							} else if (rdbtnUniversitario.isSelected()) {
-								aux = new Universitario(id, nombre, provincia, sexo, telefono, direccion, edad, titulo);
+								aux = new Universitario(id, nombre, provincia, sexo, edad, direccion, telefono, titulo);
 							} else if (rdbtnObrero.isSelected()) {
-								aux = new Obrero(id, nombre, edad, sexo, telefono, direccion, provincia, titulo);
+								aux = new Obrero(id, nombre, telefono, sexo, edad, direccion, provincia, titulo);
 							}
 							
 							SolicitudPersona soli = new SolicitudPersona("SP-"+SolicitudPersona.generadorId, aux, experiencia, sueldo, tipo, licencia, movilidad, idiomas);
