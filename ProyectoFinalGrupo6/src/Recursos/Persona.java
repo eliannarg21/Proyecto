@@ -2,7 +2,7 @@ package Recursos;
 
 import java.util.ArrayList;
 
-public abstract class Persona {
+public class Persona {
 	
 	protected String id;
 	protected boolean status;
@@ -14,7 +14,8 @@ public abstract class Persona {
 	protected String provincia;
 	protected ArrayList<SolicitudPersona> misSolicitudes;
 
-public Persona(String id, String nombre, int edad, String sexo, String telefono, String direccion, String provincia) {
+//arreglar con todas las variables que lleva
+	public Persona(String id, String nombre, String sexo, String telefono) {
 	super();
 	this.id = id;
 	this.status = false;
@@ -99,6 +100,9 @@ public void setMisSolicitudes(ArrayList<SolicitudPersona> misSolicitudes) {
 	this.misSolicitudes = misSolicitudes;
 }
 
+
 }
+
+
 
 

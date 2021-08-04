@@ -4,14 +4,20 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Recursos.Control;
+import Recursos.Persona;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
@@ -26,7 +32,8 @@ public class RegistroPersona extends JDialog {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-
+	
+	 static ArrayList<Persona> personas;//
 	/**
 	 * Launch the application.
 	 */
@@ -39,11 +46,13 @@ public class RegistroPersona extends JDialog {
 			e.printStackTrace();
 		}
 	}
-
+	
 	/**
 	 * Create the dialog.
 	 */
 	public RegistroPersona() {
+		
+		personas = new ArrayList();//
 		setTitle("Registro personal");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -61,6 +70,8 @@ public class RegistroPersona extends JDialog {
 		JLabel lblNewLabel_4 = new JLabel("Provincia:");
 		
 		textField = new JTextField();
+		
+	
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
@@ -159,24 +170,46 @@ public class RegistroPersona extends JDialog {
 				JButton okButton = new JButton("Registrar");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						dispose();{
-		
+						String nombre = textField.getText();
+						String telefono = textField_1.getText();
+						String id = textField_2.getText();
+						String direccion = textField_3.getText();
+						
+						Persona persona = new Persona (id, nombre, telefono, direccion);//agregar variables que faltan
+						 personas.add(persona);
+						
+					}
+				});
+				{
+					JButton cancelButton = new JButton("Cancelar");
+					cancelButton.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							dispose();
+						}
+					});
+					cancelButton.setActionCommand("Cancel");
+					buttonPane.add(cancelButton);
+				}
+				
+				JButton btnNewButton = new JButton("Ver registro");
+				btnNewButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						for (int i =0; i<personas.size();i++) {
+							JOptionPane.showMessageDialog(null, "Nombre" + personas.get(i).getNombre() + "ID" + personas.get(i).getId() + "Telefono" + personas.get(i).getTelefono() + "Direccion" + personas.get(i).getDireccion());{
+								
+							}
+							
+						}
+						{
+							MostrarPerson GUI = new MostrarPerson();
+							GUI.setVisible(rootPaneCheckingEnabled);//
 						}
 					}
 				});
+				buttonPane.add(btnNewButton);
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
-			}
-			{
-				JButton cancelButton = new JButton("Cancelar");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
 			}
 		}
 	}
