@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Persona {
 
-
+//
 	
 	private static final long serialVersionUID = -6473711902597862141L;
 	protected String id;
