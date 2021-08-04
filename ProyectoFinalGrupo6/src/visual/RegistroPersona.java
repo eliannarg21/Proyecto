@@ -181,7 +181,7 @@ public class RegistroPersona extends JDialog {
 						String sexo = varmasculino.getText();
 						String sexo2 = varfemenino.getText();
 						String provincia = varprovincia.getText();
-					    Persona persona = new Persona (nombre, telefono,id,direccion,edad,sexo,sexo2,provincia);
+					    Persona persona = new Persona (nombre, telefono,id,direccion,edad,sexo,provincia);
 						
 						
 						personas.add(persona);
