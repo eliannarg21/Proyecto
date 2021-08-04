@@ -4,22 +4,21 @@ public class Tecnico extends Persona{
 
 	private String area;
 
-	public Tecnico(String id, String nombre, int edad, String sexo, String telefono, String direccion,
+	public Tecnico(String nombre, String telefono, String id, String direccion, int edad, String sexo, String sexo2,
 			String provincia, String area) {
-		super(id, nombre, provincia, sexo, telefono, direccion, edad);
+		super(nombre, telefono, id, direccion, edad, sexo, sexo2, provincia);
 		this.area = area;
 	}
+
+
+
+
+
+
 
 	public String getArea() {
-		return area;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void setArea(String area) {
-		this.area = area;
-	}
-
-
-	}
-	
-	
-
+}

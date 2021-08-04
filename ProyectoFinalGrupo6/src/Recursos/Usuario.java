@@ -1,7 +1,10 @@
 package Recursos;
 
-public class Usuario {
+import java.io.Serializable;
 
+public class Usuario implements Serializable{
+
+	private static final long serialVersionUID = -979238108120415427L;
 	private String tipo;
 	private String username;
 	private String password;

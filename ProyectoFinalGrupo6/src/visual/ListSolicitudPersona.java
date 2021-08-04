@@ -122,11 +122,15 @@ public class ListSolicitudPersona extends JDialog {
 				btnEliminar.setEnabled(false);
 				btnEliminar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						int option = JOptionPane.showConfirmDialog(null, "Desea eliminar la solicitud seleccionada: "+ selected.getId(), "Eliminar Solicitud Persona", JOptionPane.YES_NO_OPTION);
-						if (option == JOptionPane.YES_OPTION) {
+						if (selected.getEstado().equalsIgnoreCase("Activa") || selected.getEstado().equalsIgnoreCase("En espera")) {
+						    int option = JOptionPane.showConfirmDialog(null, "Desea eliminar la solicitud seleccionada: "+ selected.getId(), "Eliminar Solicitud Persona", JOptionPane.YES_NO_OPTION);
+							if (option == JOptionPane.YES_OPTION) {
 							Control.getInstance().getSoliPersonas().remove(selected);
 							loadtable(0);
 							btnEliminar.setEnabled(false);
+							}
+						} else {
+							JOptionPane.showMessageDialog(null, "Esta solicitud no puede ser eliminada", "Error", JOptionPane.ERROR_MESSAGE);
 						}
 					}
 				});

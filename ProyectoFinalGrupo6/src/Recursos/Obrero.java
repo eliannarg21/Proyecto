@@ -6,18 +6,15 @@ public class Obrero extends Persona {
 	
 	private String skills;
 
-	public Obrero(String id, String nombre, int edad, String sexo, String telefono, String direccion,
+	public Obrero(String nombre, String telefono, String id, String direccion, int edad, String sexo, String sexo2,
 			String provincia, String skills) {
-		super(id, nombre, provincia, sexo, telefono, direccion, edad);
+		super(nombre, telefono, id, direccion, edad, sexo, sexo2, provincia);
 		this.skills = skills;
 	}
 
-	public String getSkills() {
-		return skills;
+	public Object getSkills() {
+		// TODO Auto-generated method stub
+		return null;
 	}
-
-	public void setSkills(String skills) {
-		this.skills = skills;
-	}
-
 }
+	

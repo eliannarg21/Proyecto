@@ -7,7 +7,12 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Recursos.Empresa;
+import Recursos.Persona;
+
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.GroupLayout;
@@ -21,11 +26,17 @@ public class RegistroEmpresas extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JLabel lblNewLabel;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_3;
-	private JTextField textField_4;
-
+	private JTextField nom;
+	private JTextField cod;
+	private JTextField tel;
+	private JTextField direc;
+	static ArrayList<Empresa> empresas;//
+	private JTextField pro;
+	private JTextField cat;
+	private JPanel buttonPane;
+	private JButton okButton;
+	private JButton cancelButton;
+	private JButton btnNewButton;
 	/**
 	 * Launch the application.
 	 */
@@ -43,11 +54,10 @@ public class RegistroEmpresas extends JDialog {
 	 * Create the dialog.
 	 */
 	public RegistroEmpresas() {
+		empresas = new ArrayList();//
 		setTitle("Registro de empresas");
-		setBounds(100, 100, 450, 300);
-		getContentPane().setLayout(new BorderLayout());
+		setBounds(100, 100, 450, 329);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		{
 			lblNewLabel = new JLabel("Nombre:");
 		}
@@ -56,21 +66,56 @@ public class RegistroEmpresas extends JDialog {
 		JLabel lblNewLabel_3 = new JLabel("Teléfono:");
 		JLabel lblNewLabel_4 = new JLabel("Dirección:");
 		JLabel lblNewLabel_5 = new JLabel("Provincia:");
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
+		nom = new JTextField();
+		nom.setColumns(10);
+		cod = new JTextField();
+		cod.setColumns(10);
+		tel = new JTextField();
+		tel.setColumns(10);
+		direc = new JTextField();
+		direc.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Azua", "Bahoruco", "Barahona", "Dajabón", "Distrito Nacional", "Duarte", "Elías Piña", "El Seibo", "Espaillat", "Hato Mayor", "Hermanas Mirabal", "Independencia", "La Altagracia", "La Romana", "La Vega", "María Trinidad Sánchez", "Monseñor Nouel", "Monte Cristi", "Monte Plata", "Pedernales", "Peravia", "Puerto Plata", "Samaná", "Sánchez Ramírez", "San Cristóbal", "San José de Ocoa", "San Juan", "San Pedro de Macorís", "Santiago", "Santiago Rodríguez", "Santo Domingo", "Valverde"}));
-		comboBox.setToolTipText("<Seleccionar>");
+		pro = new JTextField();
+		pro.setColumns(10);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Turismo", "Salud", "Educación", "Comercio", "Industrial", "Finanzas", "Telecomunicaciones", "Transporte"}));
+		cat = new JTextField();
+		cat.setColumns(10);
+		{
+			buttonPane = new JPanel();
+			{
+				okButton = new JButton("Registrar");
+				okButton.addActionListener(new ActionListener() {
+					
+					public void actionPerformed(ActionEvent e) {
+						
+						
+						String nombre = nom.getText();
+						String telefono = tel.getText();
+						String id = cod.getText();
+						String direccion = direc.getText();
+						String categoria =  pro.getText();
+						String  provincia=  cat.getText();
+						
+						Empresa emp = new Empresa ( nombre,telefono,id,direccion,categoria,provincia);
+						
+						
+						empresas.add(emp);
+						
+					}
+				});
+				okButton.setActionCommand("OK");
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				cancelButton = new JButton("Cancelar");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
+				cancelButton.setActionCommand("Cancel");
+			}
+		}
 		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
 		gl_contentPanel.setHorizontalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
@@ -78,97 +123,130 @@ public class RegistroEmpresas extends JDialog {
 					.addGap(26)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPanel.createSequentialGroup()
-							.addComponent(lblNewLabel)
-							.addGap(18)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 301, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(lblNewLabel_2)
-							.addGap(6)
-							.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(cat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(lblNewLabel_3)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(tel, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(lblNewLabel_4)
-							.addGap(6)
-							.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 303, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(direc, GroupLayout.PREFERRED_SIZE, 212, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(lblNewLabel_5)
-							.addGap(6)
-							.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPanel.createParallelGroup(Alignment.TRAILING, false)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(pro, GroupLayout.PREFERRED_SIZE, 153, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING, false)
 							.addGroup(gl_contentPanel.createSequentialGroup()
-								.addComponent(lblNewLabel_3)
-								.addGap(12)
-								.addComponent(textField_3))
-							.addGroup(Alignment.LEADING, gl_contentPanel.createSequentialGroup()
 								.addComponent(lblNewLabel_1)
 								.addGap(54)
-								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 248, GroupLayout.PREFERRED_SIZE)))))
+								.addComponent(cod))
+							.addGroup(gl_contentPanel.createSequentialGroup()
+								.addComponent(lblNewLabel)
+								.addGap(18)
+								.addComponent(nom, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE))))
+					.addGap(91))
 		);
 		gl_contentPanel.setVerticalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
-					.addGap(6)
-					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblNewLabel)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(12)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPanel.createSequentialGroup()
-							.addGap(5)
+							.addGap(11)
+							.addComponent(lblNewLabel))
+						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(nom, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addGap(17)
 							.addComponent(lblNewLabel_1))
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(12)
-					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPanel.createSequentialGroup()
-							.addGap(4)
-							.addComponent(lblNewLabel_2))
-						.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPanel.createSequentialGroup()
-							.addGap(18)
-							.addComponent(lblNewLabel_3))
-						.addGroup(gl_contentPanel.createSequentialGroup()
-							.addGap(13)
-							.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addGap(13)
-					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPanel.createSequentialGroup()
-							.addGap(5)
-							.addComponent(lblNewLabel_4))
-						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(9)
-					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPanel.createSequentialGroup()
-							.addGap(4)
-							.addComponent(lblNewLabel_5))
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+							.addGap(12)
+							.addComponent(cod, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_2)
+						.addComponent(cat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_3)
+						.addComponent(tel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(direc, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_4))
+					.addGap(18)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_5)
+						.addComponent(pro, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 		);
 		contentPanel.setLayout(gl_contentPanel);
-		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("Registrar");
-				okButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-                   dispose();
-					}
-				});
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
+		
+		btnNewButton = new JButton("Buscar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for (int i =0; i<empresas.size();i++) {
+					
+					
+				}
+				{
+					MostrarEmpresas GUI = new MostrarEmpresas();
+					GUI.setVisible(rootPaneCheckingEnabled);//
+				}
 			}
-			{
-				JButton cancelButton = new JButton("Cancelar");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
-			}
-		}
+		});
+		
+		GroupLayout gl_buttonPane = new GroupLayout(buttonPane);
+		gl_buttonPane.setHorizontalGroup(
+			gl_buttonPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_buttonPane.createSequentialGroup()
+					.addGap(134)
+					.addComponent(cancelButton)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnNewButton)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(okButton)
+					.addContainerGap(30, Short.MAX_VALUE))
+		);
+		gl_buttonPane.setVerticalGroup(
+			gl_buttonPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_buttonPane.createSequentialGroup()
+					.addGap(16)
+					.addGroup(gl_buttonPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(cancelButton)
+						.addComponent(btnNewButton)
+						.addComponent(okButton))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		buttonPane.setLayout(gl_buttonPane);
+		GroupLayout groupLayout = new GroupLayout(getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(contentPanel, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(6)
+							.addComponent(buttonPane, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(6)
+					.addComponent(contentPanel, GroupLayout.PREFERRED_SIZE, 241, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(buttonPane, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		getContentPane().setLayout(groupLayout);
 	}
 }
 //

@@ -4,21 +4,16 @@ public class Universitario extends Persona{
 
 	private String titulo;
 
-
-	public Universitario(String id, String nombre, String sexo, String telefono, String provincia, String direccion,
-			int edad, String titulo) {
-		super(id, nombre, sexo, telefono, provincia, direccion, edad);
+	public Universitario(String nombre, String telefono, String id, String direccion, int edad, String sexo,
+			String sexo2, String provincia, String titulo) {
+		super(nombre, telefono, id, direccion, edad, sexo, sexo2, provincia);
 		this.titulo = titulo;
 	}
-
 
 	public String getTitulo() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 
-	
-	
 }

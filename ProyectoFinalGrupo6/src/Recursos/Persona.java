@@ -9,13 +9,14 @@ public class Persona {
 	protected String nombre;
 	protected int edad;
 	protected String sexo;
+	protected String sexo2;
 	protected String telefono;
 	protected String direccion;
 	protected String provincia;
 	protected ArrayList<SolicitudPersona> misSolicitudes;
 
 //arreglar con todas las variables que lleva
-	public Persona(String id, String nombre, String sexo, String telefono, String provincia, String direccion, int edad) {
+	public Persona(String nombre, String telefono, String id, String direccion, int edad, String sexo,String sexo2, String provincia) {
 	super();
 	this.id = id;
 	this.status = false;
@@ -66,6 +67,14 @@ public String getSexo() {
 
 public void setSexo(String sexo) {
 	this.sexo = sexo;
+}
+
+public String getSexo2() {
+	return sexo2;
+}
+
+public void setSexo2(String sexo2) {
+	this.sexo2 = sexo2;
 }
 
 public String getTelefono() {

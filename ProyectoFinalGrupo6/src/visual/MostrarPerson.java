@@ -31,17 +31,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 
 public class MostrarPerson extends JDialog {
-
 	private final JPanel contentPanel = new JPanel();
 	private JLabel lblNewLabel;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField varcedula;
+	private JTextField varnombre;
+	private JTextField varid;
+	private JTextField vartelefono;
+	private JTextField vardireccion;
+	private JTextField varedad;
+	private JTextField varsexo;
 	private JButton okButton;
+	private JTextField varprovincia;
 
 	/**
 	 * Launch the application.
@@ -76,52 +76,53 @@ public class MostrarPerson extends JDialog {
 		
 		JLabel lblNewLabel_4 = new JLabel("New label");
 		
-		JLabel lblNewLabel_5 = new JLabel("Cédula:");
+		JLabel lblNewLabel_5 = new JLabel("Consultar cédula:");
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		varcedula = new JTextField();
+		varcedula.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		varnombre = new JTextField();
+		varnombre.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
+		varid = new JTextField();
+		varid.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
+		vartelefono = new JTextField();
+		vartelefono.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
+		vardireccion = new JTextField();
+		vardireccion.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("Edad:");
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
+		varedad = new JTextField();
+		varedad.setColumns(10);
 		
 		JLabel lblNewLabel_7 = new JLabel("Sexo:");
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
+		varsexo = new JTextField();
+		varsexo.setColumns(10);
 		{
-			okButton = new JButton("Mostrar");
+			okButton = new JButton("Buscar");
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					boolean personaEncontrada= false;
-					String codigoBuscarString = textField.getText();
+					String codigoBuscarString = varcedula.getText();
 					
 					for(Persona persona : RegistroPersona.personas) {
 						
 						if (persona.getId().equals(codigoBuscarString)) {
-						textField.setText(persona.getId());
-						textField_1.setText(persona.getNombre());
-						textField_2.setText(persona.getId());
-						textField_5.setText("  "+ persona.getEdad());
-						textField_6.setText(persona.getSexo());
-						textField_3.setText(persona.getTelefono());
-						textField_4.setText(persona.getDireccion());
+						varcedula.setText(persona.getId());
+						varnombre.setText(persona.getNombre());
+						varid.setText(persona.getId());
+						varedad.setText(" "+ persona.getEdad());
+						varprovincia.setText(persona.getProvincia());
+						varsexo.setText(persona.getSexo());
+						vartelefono.setText(persona.getTelefono());
+						vardireccion.setText(persona.getDireccion());
 						personaEncontrada = true;
 						
-						
+						//
 						}
 					}
 					if (personaEncontrada==false) {
@@ -132,6 +133,11 @@ public class MostrarPerson extends JDialog {
 			okButton.setActionCommand("OK");
 			getRootPane().setDefaultButton(okButton);
 		}
+		
+		JLabel lblNewLabel_8 = new JLabel("Provincia:");
+		
+		varprovincia = new JTextField();
+		varprovincia.setColumns(10);
 		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
 		gl_contentPanel.setHorizontalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
@@ -153,25 +159,27 @@ public class MostrarPerson extends JDialog {
 							.addGap(18)
 							.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_contentPanel.createSequentialGroup()
-									.addComponent(textField, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+									.addComponent(varcedula, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addComponent(okButton, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
-									.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPanel.createSequentialGroup()
+									.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING, false)
+										.addComponent(varid, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addGroup(gl_contentPanel.createSequentialGroup()
-											.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
-												.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE)
-												.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-												.addGroup(gl_contentPanel.createSequentialGroup()
-													.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-													.addGap(18)
-													.addComponent(lblNewLabel_7)
-													.addPreferredGap(ComponentPlacement.RELATED)
-													.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)))
-											.addPreferredGap(ComponentPlacement.RELATED, 71, Short.MAX_VALUE))
-										.addComponent(textField_3, GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))))))
-					.addGap(22))
+											.addComponent(varedad, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+											.addGap(18)
+											.addComponent(lblNewLabel_7)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(varsexo, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_contentPanel.createSequentialGroup()
+											.addComponent(vartelefono, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(lblNewLabel_8))
+										.addComponent(vardireccion)
+										.addComponent(varnombre))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(varprovincia, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)))))
+					.addGap(9))
 		);
 		gl_contentPanel.setVerticalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
@@ -179,30 +187,32 @@ public class MostrarPerson extends JDialog {
 					.addContainerGap()
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_5)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(varcedula, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(okButton))
 					.addGap(18)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(varnombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_1)
-						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(varid, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_6)
-						.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(varedad, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_7)
-						.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(varsexo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(12)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_2))
+						.addComponent(vartelefono, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_2)
+						.addComponent(lblNewLabel_8)
+						.addComponent(varprovincia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_3)
-						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(vardireccion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(28)
 					.addComponent(lblNewLabel_4)
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -223,5 +233,6 @@ public class MostrarPerson extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
-	}
+	
+}
 }

@@ -123,11 +123,15 @@ public class ListSolicitudEmpresa extends JDialog {
 				btnEliminar.setEnabled(false);
 				btnEliminar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						int option = JOptionPane.showConfirmDialog(null, "Desea eliminar la solicitud seleccionada: "+ selected.getIdSolicitud(), "Eliminar Solicitud Empresa", JOptionPane.YES_NO_OPTION);
-						if (option == JOptionPane.YES_OPTION) {
-							Control.getInstance().getSoliEmpresas().remove(selected);
-							loadtable(0);
-							btnEliminar.setEnabled(false);
+						if (selected.isEstado()) {
+							int option = JOptionPane.showConfirmDialog(null, "Desea eliminar la solicitud seleccionada: "+ selected.getIdSolicitud(), "Eliminar Solicitud Empresa", JOptionPane.YES_NO_OPTION);
+							if (option == JOptionPane.YES_OPTION) {
+								Control.getInstance().getSoliEmpresas().remove(selected);
+								loadtable(0);
+								btnEliminar.setEnabled(false);
+							}
+						} else {
+							JOptionPane.showMessageDialog(null, "Esta solicitud no puede ser eliminada", "Error", JOptionPane.ERROR_MESSAGE);
 						}
 					}
 				});

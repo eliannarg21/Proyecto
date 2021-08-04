@@ -28,11 +28,11 @@ import javax.swing.DefaultComboBoxModel;
 public class RegistroPersona extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-    private JTextField textField_4;
+	private JTextField varnombre;
+	private JTextField vartelefono;
+	private JTextField varcedula;
+	private JTextField vardireccion;
+    private JTextField varprovincia;
 	
 	 static ArrayList<Persona> personas;//
 	
@@ -63,7 +63,7 @@ public class RegistroPersona extends JDialog {
 		
 		JLabel lblNewLabel = new JLabel("Nombre:");
 		
-		JLabel lblNewLabel_1 = new JLabel("Identificación:");
+		JLabel lblNewLabel_1 = new JLabel("Cédula:");
 		
 		JLabel lblNewLabel_2 = new JLabel("Teléfono:");
 		
@@ -71,32 +71,32 @@ public class RegistroPersona extends JDialog {
 		
 		JLabel lblNewLabel_4 = new JLabel("Provincia:");
 		
-		textField = new JTextField();
+		varnombre = new JTextField();
 		
 	
-		textField.setColumns(10);
+		varnombre.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		vartelefono = new JTextField();
+		vartelefono.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
+		varcedula = new JTextField();
+		varcedula.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
+		vardireccion = new JTextField();
+		vardireccion.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("Edad:");
 		
-		JSpinner spinner = new JSpinner();
-		
 		JLabel lblNewLabel_6 = new JLabel("Sexo:");
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("M");
+		JRadioButton varmasculino = new JRadioButton("M");
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("F");
+		JRadioButton varfemenino = new JRadioButton("F");
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
+		varprovincia = new JTextField();
+		varprovincia.setColumns(10);
+		
+		JSpinner varedad = new JSpinner();
 		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
 		gl_contentPanel.setHorizontalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
@@ -112,23 +112,24 @@ public class RegistroPersona extends JDialog {
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPanel.createSequentialGroup()
 							.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(textField_3)
+								.addComponent(vardireccion)
 								.addGroup(gl_contentPanel.createSequentialGroup()
-									.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(varcedula, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 									.addGap(18)
 									.addComponent(lblNewLabel_6)
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(rdbtnNewRadioButton, GroupLayout.PREFERRED_SIZE, 62, GroupLayout.PREFERRED_SIZE)))
+									.addComponent(varmasculino, GroupLayout.PREFERRED_SIZE, 62, GroupLayout.PREFERRED_SIZE)))
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(rdbtnNewRadioButton_1, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE))
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
+							.addComponent(varfemenino, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE))
+						.addComponent(vartelefono, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPanel.createSequentialGroup()
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)
+							.addComponent(varnombre, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(lblNewLabel_5)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
-						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE)))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(varedad, GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
+						.addComponent(varprovincia, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
 		);
 		gl_contentPanel.setVerticalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
@@ -138,30 +139,30 @@ public class RegistroPersona extends JDialog {
 							.addGap(20)
 							.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblNewLabel)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(varnombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblNewLabel_5)
-								.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(varedad, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addGap(18)
 							.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(varcedula, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblNewLabel_6)
-								.addComponent(rdbtnNewRadioButton, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-								.addComponent(rdbtnNewRadioButton_1)))
+								.addComponent(varmasculino, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+								.addComponent(varfemenino)))
 						.addGroup(gl_contentPanel.createSequentialGroup()
 							.addGap(64)
 							.addComponent(lblNewLabel_1)))
 					.addGap(18)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(vartelefono, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_2))
 					.addGap(18)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_3)
-						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(vardireccion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.TRAILING)
 						.addComponent(lblNewLabel_4)
-						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(varprovincia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 		);
 		contentPanel.setLayout(gl_contentPanel);
 		{
@@ -172,15 +173,16 @@ public class RegistroPersona extends JDialog {
 				JButton okButton = new JButton("Registrar");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						String nombre = textField.getText();
-						String telefono = textField_1.getText();
-						String id = textField_2.getText();
-						String direccion = textField_3.getText();
-						int edad = spinner.getComponentCount();
-						String sexo = rdbtnNewRadioButton.getLabel();
-						String sexo2 = rdbtnNewRadioButton_1.getLabel();
-						String provincia = textField_4.getText();
-						Persona persona = new Persona (id, nombre, telefono, direccion,sexo,provincia,edad);//agregar variables que faltan
+						String nombre = varnombre.getText();
+						String telefono = vartelefono.getText();
+						String id = varcedula.getText();
+						String direccion = vardireccion.getText();
+						int edad = (int) varedad.getValue();
+						String sexo = varmasculino.getText();
+						String sexo2 = varfemenino.getText();
+						String provincia = varprovincia.getText();
+					    Persona persona = new Persona (nombre, telefono,id,direccion,edad,sexo,sexo2,provincia);
+						
 						
 						personas.add(persona);
 						
@@ -197,13 +199,11 @@ public class RegistroPersona extends JDialog {
 					buttonPane.add(cancelButton);
 				}
 				
-				JButton btnNewButton = new JButton("Ver registro");
+				JButton btnNewButton = new JButton("Buscar");
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						for (int i =0; i<personas.size();i++) {
-							JOptionPane.showMessageDialog(null, "Nombre" + personas.get(i).getNombre() + "ID" + personas.get(i).getId() + "Telefono" + personas.get(i).getTelefono() + "Direccion" + personas.get(i).getDireccion());{
-								
-							}
+							
 							
 						}
 						{
