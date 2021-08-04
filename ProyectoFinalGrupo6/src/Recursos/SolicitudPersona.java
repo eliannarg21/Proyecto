@@ -1,9 +1,11 @@
 package Recursos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SolicitudPersona {
+public class SolicitudPersona implements Serializable{
 
+private static final long serialVersionUID = -1295081919267776218L;
 private String id;
 private Persona persona;
 private String estado;
@@ -20,7 +22,11 @@ public SolicitudPersona(String id, Persona persona, int experiencia, float sueld
 	super();
 	this.id = id;
 	this.persona = persona;
-	this.setEstado("Activa");
+	if (!persona.isStatus()) {
+		this.setEstado("Activa");
+	} else {
+		this.setEstado("En espera");
+	}
 	this.experiencia = experiencia;
 	this.sueldoMinimo = sueldoMinimo;
 	this.tipoTrabajo = tipoTrabajo;

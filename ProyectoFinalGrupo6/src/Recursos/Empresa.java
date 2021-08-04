@@ -1,9 +1,11 @@
 package Recursos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Empresa {
+public class Empresa implements Serializable{
 
+	private static final long serialVersionUID = -7775555408612274704L;
 	private String idEmpresa;
 	private String NombreEmpresa;
 	private String categoria;

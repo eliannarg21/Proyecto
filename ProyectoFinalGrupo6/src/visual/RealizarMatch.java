@@ -38,6 +38,7 @@ public class RealizarMatch extends JDialog {
 	private static DefaultTableModel model;
 	private static Object rows[];
 	private SolicitudEmpresa selected = null;
+	private SolicitudPersona selectedPerson = null;
 	private JTable table;
 	private JButton btnEliminar;
 
@@ -77,7 +78,7 @@ public class RealizarMatch extends JDialog {
 			panel.add(scrollPane);
 			{
 				model = new DefaultTableModel();
-				String headers[] = {"Empresa", "Solicitud","Título", "Empleado", "Porcentaje"};
+				String headers[] = {"Empresa", "Solicitud","Título", "Empleado","Cédula","Solicitud Persona", "Porcentaje"};
 				model.setColumnIdentifiers(headers);
 				loadtable(0);
 				table = new JTable();
@@ -88,8 +89,10 @@ public class RealizarMatch extends JDialog {
 						index = table.getSelectedRow();
 						if (index != -1) {
 							btnEliminar.setEnabled(true);
-							String id = (String)(model.getValueAt(index, 0));
+							String id = (String)(model.getValueAt(index, 1));
+							String idPerson = (String) model.getValueAt(index, 5);
 							selected = Control.getInstance().BuscarSoliEmpresa(id);
+							selectedPerson = Control.getInstance().BuscarSoliPersona(idPerson);
 						}
 					}
 				});
@@ -106,11 +109,14 @@ public class RealizarMatch extends JDialog {
 				btnEliminar.setEnabled(false);
 				btnEliminar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						int option = JOptionPane.showConfirmDialog(null, "Desea eliminar la solicitud seleccionada: "+ selected.getIdSolicitud(), "Eliminar Solicitud Empresa", JOptionPane.YES_NO_OPTION);
+						int option = JOptionPane.showConfirmDialog(null, "Desea realizar la siguiente solicitud "+ selected.getIdSolicitud(), "Completar Solicitud Empresa", JOptionPane.YES_NO_OPTION);
 						if (option == JOptionPane.YES_OPTION) {
-							Control.getInstance().getSoliEmpresas().remove(selected);
+							Control.getInstance().completarSolicitud(selected);
+							selectedPerson.setEstado("Completada");
+							Control.getInstance().changeToEmpleado(selectedPerson.getPerson());
 							loadtable(0);
 							btnEliminar.setEnabled(false);
+							JOptionPane.showMessageDialog(null, "Solicitud completada!", "Información", JOptionPane.INFORMATION_MESSAGE);
 						}
 					}
 				});
@@ -136,21 +142,27 @@ public class RealizarMatch extends JDialog {
 		rows = new Object[model.getColumnCount()];
 		
 		for (SolicitudEmpresa se: Control.getInstance().getSoliEmpresas()) {
-			SolicitudPersona p = Control.getInstance().match(se);
-			if (p != null) {
-				rows[0] = se.getMiEmpresa().getNombreEmpresa();
-				rows[1] = se.getIdSolicitud();
-				rows[2] = se.getTituloEmpleado();
-				rows[3] = p.getPerson().getNombre();
-				rows[4] = Control.getInstance().porcentaje(p, se);
-				model.addRow(rows);
-			} else {
-				rows[0] = se.getMiEmpresa().getNombreEmpresa();
-				rows[1] = se.getIdSolicitud();
-				rows[2] = "Sin resultado";
-				rows[3] = "Sin resultado";
-				rows[4] = "Sin resultado";
-				model.addRow(rows);
+			if (se.isEstado()) {
+				SolicitudPersona p = Control.getInstance().match(se);
+				if (p != null) {
+					rows[0] = se.getMiEmpresa().getNombreEmpresa();
+					rows[1] = se.getIdSolicitud();
+					rows[2] = se.getTituloEmpleado();
+					rows[3] = p.getPerson().getNombre();
+					rows[4] = p.getPerson().getId();
+					rows[5] = p.getId();
+					rows[6] = Control.getInstance().porcentaje(p, se);
+					model.addRow(rows);
+				} else {
+					rows[0] = se.getMiEmpresa().getNombreEmpresa();
+					rows[1] = se.getIdSolicitud();
+					rows[2] = "Sin resultado";
+					rows[3] = "Sin resultado";
+					rows[4] = "Sin resultado";
+					rows[5] = "Sin resultado";
+					rows[6] = "Sin resultado";
+					model.addRow(rows);
+				}
 			}
 		}
 	}

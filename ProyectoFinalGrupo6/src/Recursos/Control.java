@@ -1,17 +1,18 @@
 package Recursos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-
-//
-public class Control {
+public class Control implements Serializable{
 	
+	private static final long serialVersionUID = -2707581395699323652L;
 	private ArrayList<Usuario> usuarios;
 	private ArrayList<Empresa> empresas;
 	private ArrayList<Persona> personas;
 	private ArrayList<SolicitudEmpresa> soliEmpresas;
 	private ArrayList<SolicitudPersona> soliPersonas;
 	private static Control control = null;
+	private static Usuario loginUser;
 
 	public Control() {
 		usuarios = new ArrayList<>();
@@ -70,6 +71,22 @@ public class Control {
 		this.soliPersonas = soliPersonas;
 	}
 	
+	public static Usuario getLoginUser() {
+		return loginUser;
+	}
+
+	public static void setLoginUser(Usuario loginUser) {
+		Control.loginUser = loginUser;
+	}
+
+	public static Control getControl() {
+		return control;
+	}
+
+	public static void setControl(Control control) {
+		Control.control = control;
+	}
+
 	//Metodo Buscar empresa por ID
 	public Empresa BuscarEmpresa(String idEmpresa) {
 		for(Empresa e: empresas) {
@@ -222,6 +239,36 @@ public class Control {
 			}
 		}
 	}
-
-
+	
+	public boolean confirmLogin(String username, String password) {
+		boolean login = false;
+		for (Usuario user : usuarios) {
+			if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+				loginUser = user;
+				login = true;
+			}
+		}
+		return login;
+	}
+	
+	public void completarSolicitud(SolicitudEmpresa se) {
+		if (se.getCantidad() > 1) {
+			se.setCantidad(se.getCantidad()-1);
+		} else {
+			se.setEstado(false);
+		}
+	}
+	
+	public void regUser(Usuario user) {
+		usuarios.add(user);
+	}
+	
+	public Usuario findUsuarioByUsername(String username) {
+		for (Usuario user : usuarios) {
+			if (user.getUsername().equals(username)) {
+				return user;
+			}
+		}
+		return null;
+	}
 }

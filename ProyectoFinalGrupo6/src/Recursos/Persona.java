@@ -1,9 +1,11 @@
 package Recursos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Persona {
+public abstract class Persona implements Serializable{
 	
+	private static final long serialVersionUID = -6473711902597862141L;
 	protected String id;
 	protected boolean status;
 	protected String nombre;
